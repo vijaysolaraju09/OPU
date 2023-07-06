@@ -1,0 +1,269 @@
+.grade__input-field {
+    border: $dropdown-border;
+    padding: 10px 14px;
+    color: $light-gray-color;
+    border-radius: 5px;
+    width: 100%;
+  }
+.create-grade {
+    &__input {
+      @extend .grade__input-field;
+      outline: 0;
+    }
+    &__radiobuttons{
+      gap:25px;
+    }
+    &__radios{
+        border: $dropdown-border;
+        padding: 10px 102px 10px 14px;
+        color: $light-gray-color;
+        border-radius: 5px;
+        outline: 0;
+        position: relative;
+        input[type=radio]{
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            &:checked{
+                 &__custom-radio{
+                    background: $primary-color;
+                    border-color: $primary-color;
+                    img {
+                        display: block;
+                        transform: scale(0.5);
+                        transition: 0.25s all ease;
+                        filter: brightness(0) saturate(100%) invert(15%) sepia(70%) saturate(6026%) hue-rotate(351deg) brightness(94%) contrast(86%);
+                    }
+                }
+            }
+        }
+    }
+    &__custom-radio{
+        height:16px;
+        width:16px;
+        margin-right:6px;
+        border: 2px solid $light-grey-100;
+        border-radius: 50%;
+        background-color: transparent;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+       img{
+        display: none;
+        // transition: 0.25s all ease;
+       }
+    }
+       
+  
+    &__save-button {
+      padding: 10px 58px;
+    //   margin-bottom: 15px;
+    }
+    &__save-add-button {
+      padding: 10px 12px;
+      margin-left:21px;
+    }
+    // input[type="checkbox"] {
+    //     width: 15px;
+    //     height: 15px;
+    //     border: 5px solid red;
+    // }
+  }
+
+   
+  .mandatory--mark {
+    color: #ff0000;
+  }
+
+.admin-data,.editor-data,.teacher-data,.active-buttons{
+  display: none;
+}
+
+//-----------admin details page-------------//
+
+.admin-details{
+    background: $table-row-bg-color;
+    border: $dropdown-border;
+    border-radius: 5px;
+    padding:21px 23px 37px 22px;
+    margin-top:13px;
+    @include media-breakpoint-down(md){
+        padding:15px;
+    }
+    &__heading {
+      padding-bottom:13px;
+      font-weight: 500;
+      font-size: rem(14px);
+      color:$primary-font-color;
+      }
+    &__borders{
+      padding:13px 0;
+      border-bottom: 1px solid $light-grey-200;
+      border-top: 1px solid $light-grey-200;
+    }
+    &__roles{
+      padding-top:13px;
+    }
+    &__starttext{
+      font-size: rem(13px);
+      color:$primary-font-color;
+    }
+    &__checktext{
+      font-size: rem(13px);
+      line-height: 20px;
+      color: $light-grey-300;
+      margin-left:8px;
+    }
+    &__checkbottom{
+      margin-bottom:16px;
+    }
+    &__dropdown-heading{
+      font-size: rem(12px);
+      line-height: 15px;
+      color:$primary-font-color;
+    }
+    &__dropdown-list{
+        max-width:183px;
+        border: $dropdown-border;
+        border-radius: 5px;
+        padding:10px;
+        font-weight: 400;
+        font-size: rem(12px);
+        color: $input-placeholder-color;
+    }
+    .form-select:focus{
+        border-color:none;
+        box-shadow:none;
+        outline: none;
+        border: $dropdown-border;
+      }
+    input[type=checkbox]:checked {
+      accent-color: $primary-color;
+    }
+    }
+    
+
+//----------------delete modal---------------//
+.delete-modal{
+    .modal-header{
+      border-bottom: none;
+      padding: 26px 24px 0px 24px;
+    }
+    .modal-body{
+      padding: 0 24px 24px 24px;
+      &__heading{
+        font-weight: 600;
+        font-size: rem(18px);
+        color: $primary-font-color;
+        margin-top: 12px;
+        margin-bottom:6px;
+      }
+      &__text{
+        font-weight: 400;
+        font-size: rem(14px);
+        color: $primary-font-color;
+      }
+  
+    }
+    .modal-footer{
+      padding: 0 24px 24px 24px;
+      border-top: none ;
+      justify-content: center;
+      &__modalbuttons{
+        padding:10px 74px;
+        font-size:rem(16px);
+        font-weight: 600;
+      }
+      &__yesbutton{
+        background: #FFFFFF;
+         border: 1px solid #D0D5DD;
+         color: $primary-font-color;
+         border-radius: 8px;
+      }
+    }
+  }
+
+
+  //---------------check------------//
+  .forgap {
+    display:flex;
+    flex-wrap: wrap;
+    gap:25px;
+  }
+  
+  .forgap .forborders{
+    border: $dropdown-border;
+    border-radius: 5px;
+  }
+  
+  
+  .label-container {
+      display: block;
+      position: relative;
+      padding: 13px 102px 13px 33px;
+    cursor: pointer;
+     font-weight: 400;
+     font-size: 12px;
+     color:#A49F9F;
+    -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+  }
+  
+  .label-container input {
+      position: absolute;
+      opacity: 0;
+      cursor: pointer;
+  }
+  .checkmark {
+    position: absolute;
+    top: 13px;
+    left: 8px;
+    height: 16px;
+    width: 16px;
+    border-radius: 50%;
+    border: 2px solid $light-grey-100;
+}
+.checkmark-dafault{
+  position: absolute;
+    top: 13px;
+    left: 8px;
+    height: 16px;
+    width: 16px;
+    border-radius: 50%;
+    border: 2px solid $light-grey-100;
+}
+
+.label-container input:checked ~ .checkmark {
+    background-color: $primary-color;
+    border: 2px solid $primary-color;
+}
+
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+.label-container input:checked ~ .checkmark:after {
+    display: block;
+}
+
+.label-container .checkmark:after {
+    left: 4px;
+    top: 0;
+    width: 5px;
+    height: 10px;
+    border: solid $white-color;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+
+  

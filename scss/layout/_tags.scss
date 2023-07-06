@@ -1,0 +1,54 @@
+.main__container{
+    .tagtype-feild{
+        border-bottom:1px dashed #E4E4E4;
+    }
+    .tagsheadings{
+        font-size: rem(22px);
+    }
+    .selected-available{
+        border: 1px solid #FFE6E6;
+        padding: 29px 18px 29px 39px;
+        //min-height: 297px;
+       
+    }
+    .artificial-button{
+        padding: 10px 20px;
+        font-size: rem(18px);
+        border: $dropdown-border;
+        border-radius: 5px;
+        &:hover{
+            background-color: $primary-color;
+            color: $white;
+        }
+    }
+    .usedin{
+        font-size:14px;
+    }
+    .checktext{
+        color: #5A5B5C;
+    }
+}
+.edittag-feild{
+    border-bottom: 1px solid #D9D9D9;
+    &__tagtext{
+        font-size: rem(12px);
+        color: #908F8F;
+    }
+    &__tagcontent{
+        font-size: rem(14px);
+    }
+
+}
+.delete-tags{
+    border: $dropdown-border;
+    // padding: 9px 13px;
+    border-radius: 5px;
+    height: 43px;
+    width: 43px;
+    margin-left: 20px;
+    cursor: pointer;
+    img{
+        height: 14px;
+        width:14px;
+    }
+}

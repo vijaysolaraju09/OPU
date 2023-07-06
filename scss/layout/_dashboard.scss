@@ -1,0 +1,188 @@
+.dashsection {
+    margin: 31px 0;
+    &__dashboard {
+        font-weight: 600;
+        font-size: rem(24px);
+        color: $white-color;
+        span {
+            font-size: 14px;
+        }
+    }
+}
+
+.whats-new {
+    background: linear-gradient(90.09deg, #FFF6F6 0.06%, #FFE6E6 94.24%);
+    box-shadow: 0px 4px 11px rgba(0, 0, 0, 0.12);
+    border-radius: 8px;
+    padding: 20px 24px;
+    margin-top: 24px;
+    &__title {
+        font-weight: 600;
+        font-size: rem(16px);
+        color: $black;
+    }
+    &__text {
+        font-weight: 400;
+        font-size: rem(13px);
+        margin-top: 4px;
+        color: $black;
+    }
+    &__img {
+        height: 59px;
+        width: 89px;
+        margin-left: 7px;
+    }
+    &__viewbtn {
+        padding: 10px 16px;
+        @include media-breakpoint-down(sm) {
+            margin-top: 8px;
+        }
+    }
+}
+
+.time-duration {
+    margin-top: 30px;
+    &__time {
+        padding: 0 12px;
+        // margin-right:12px;
+        font-weight: 400;
+        font-size: rem(12px);
+        color: $grey-100;
+        &:not(:last-child) {
+            border-right: 1px solid rgba(131, 131, 131, 0.5);
+        }
+    }
+    &__questions {
+        font-weight: 600;
+        font-size: rem(16px);
+        color: $primary-font-color;
+    }
+}
+
+.published-created {
+    border-radius: 8px;
+    background-color: $white-color;
+    margin-top: 22px;
+    box-shadow: 0px 6px 25px 6px rgba(0, 0, 0, 0.12);
+    &__buttons {
+        // border: 1px solid $primary-font-color;
+        font-weight: 600;
+        font-size: rem(14px);
+        color: $white-color;
+        padding: 12px 0;
+    }
+    .nav-tabs {
+        border: 1px solid #35363A;
+        border-top-right-radius: 8px;
+        border-top-left-radius: 8px;
+    }
+    // &__published {
+    //     border-top-left-radius: 8px;
+    //     border-right: none;
+    //     background-color: $primary-font-color;
+    // }
+    // &__created {
+    //     border-top-right-radius: 8px;
+    //     background-color: $white-color;
+    // }
+    &__btn {
+        background-color: $white-color;
+        color: $primary-font-color;
+        border: none;
+
+        &:first-child {
+            border-top-left-radius: 8px;
+        }
+        &:last-child {
+            border-top-right-radius: 8px;
+        }
+        &.active {
+            
+            border-right: none;
+            color: $white-color;
+            background-color: $primary-font-color;
+        }
+    }
+    &__graphsection {
+        padding: 18px 24px;
+    }
+    &__doughnutchart {
+        canvas {
+            height: 201px !important;
+        }
+    }
+    &__authordoughnutchart{
+        height: 262px;
+    }
+    .donut-data {
+        margin-top: 18px;
+        &__databox {
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            border-radius: 1.5px;
+            margin-right: 6px;
+        }
+        &--orange {
+            background-color: $orange;
+        }
+        &--yellow {
+            background-color: $yellow;
+        }
+        &--blue {
+            background-color: $blue;
+        }
+        &--violet {
+            background-color: $violet;
+        }
+        &--lightblue {
+            background-color: $sky-blue;
+        }
+        &--purple {
+            background-color: $purple;
+        }
+        &--green{
+            background-color: $status-success-bg-color;
+        }
+        &--red{
+            background-color: $status-danger-bg-color;
+        }
+        &__text {
+            font-weight: 400;
+            font-size: rem(13px);
+            color: $grey-200;
+        }
+    }
+}
+
+.assesment-graph {
+    margin-top: 22px;
+    border-radius: 8px;
+    box-shadow: 0px 6px 25px 6px rgba(0, 0, 0, 0.12);
+    padding: 30px 20px 30px 20px;
+    canvas {
+        width:100% !important;
+        &.home-dashboard{
+            height: 307px !important;
+        }
+        &.author-dashboard{
+            height: 306px !important;
+        }
+        @include media-breakpoint-down(sm){
+            height: 213px !important;
+        }
+    }
+    
+
+}
+
+.chartBox {
+    width: 100%;
+}
+
+.download-button {
+    border: 1px solid $primary-color;
+    border-radius: 4px;
+    padding: 8px;
+    background: transparent;
+}

@@ -1,0 +1,17 @@
+.profile__label {
+    color: #918F8F;
+}
+
+.main-profile__container {
+    border: 6px solid rgba(217, 217, 217, 0.2);
+    height: 159px;
+    width: 159px;
+}
+
+.edit-profile__icon {
+    position: absolute;
+    background: $primary-color;
+    padding: 9px 8px;
+    bottom: 22px;
+    left: 125px;
+}

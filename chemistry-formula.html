@@ -1,0 +1,944 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="css/select2.min.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/dataTables.min.css" />
+    <link rel="stylesheet" href="css/main.css" />
+</head>
+
+<body>
+    <div class="d-flex">
+        <aside class="sidebar sidebar__collapsed bg-white d-flex flex-column">
+            <a>
+                <img id="sidebarLogo" src="img/Sidebar/be-assess-logo.png" alt="be-assess" class="sidebar__logo" />
+            </a>
+            <div class="d-flex flex-column justify-content-between align-content-between h-100 w-100">
+                <ul class="sidebar__top-menu p-0">
+                    <li class="list-inline mb-4">
+                        <a class="sidebar__options-list rounded d-flex align-items-center">
+                            <img src="img/Sidebar/dashboard.svg" alt="dashboard"
+                                class="sidebar__icons sidebar__icons--expanded" />
+                            <p class="ms-2 collapse-label d-none">Dashboard</p>
+                        </a>
+                    </li>
+                    <li class="list-inline mb-4 author-sidebar__icon position-relative">
+                        <a class="sidebar__options-list rounded d-flex align-items-center">
+                            <img src="img/Sidebar/question-icon.svg" alt="user-management"
+                                class="sidebar__icons sidebar__icons--expanded" />
+                            <p class="ms-2 collapse-label d-none">Question</p>
+                        </a>
+                    </li>
+                    <li class="list-inline mb-4  author-sidebar__icon position-relative">
+                        <a class="sidebar__options-list rounded d-flex align-items-center">
+                            <img src="img/Sidebar/assessment-icon.svg" alt="reports"
+                                class="sidebar__icons sidebar__icons--expanded" />
+                            <p class="ms-2 collapse-label d-none">Assessment</p>
+                        </a>
+                    </li>
+                    <li class="list-inline mb-4  author-sidebar__icon position-relative">
+                        <a class="sidebar__options-list rounded d-flex align-items-center">
+                            <img src="img/Sidebar/tags-icon.svg" alt="scoring-module"
+                                class="sidebar__icons sidebar__icons--expanded" />
+                            <p class="ms-2 collapse-label d-none">Tags</p>
+                        </a>
+                    </li>
+
+                </ul>
+                <ul class="p-0 mb-3 sidebar__bottom-menu">
+                    <li class="list-inline sidebar__options-bottom-list">
+                        <a
+                            class="sidebar__options-list sidebar__options-bottom-list--links rounded d-flex align-items-center">
+                            <img src="img/Sidebar/help-icon.svg" alt="help"
+                                class="sidebar__icons sidebar__icons--expanded" />
+                            <p class="ms-1 collapse-label d-none">Help</p>
+                        </a>
+                    </li>
+                    <li class="list-inline sidebar__options-bottom-list mb-0">
+                        <a
+                            class="sidebar__options-list sidebar__options-bottom-list--links rounded d-flex align-items-center">
+                            <img src="img/Sidebar/logout-icon.svg" alt="logout"
+                                class="sidebar__icons sidebar__icons--expanded" />
+                            <p class="ms-1 collapse-label d-none">Logout</p>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <button id="sidebarToggleIcon"
+                class="btn position-absolute bg-white rounded-circle d-flex justify-content-center align-items-center sidebar__expand-icon"
+                onclick="expandSidebar()">
+                <img id="arrowIcon" src="img/Sidebar/expand-icon.png" class="arrow__icon--collapsed" />
+            </button>
+        </aside>
+        <div class="w-100 main-wrapper">
+            <div class="main-container">
+                <div class="pages-wrapper">
+                    <nav class="navbar navbar-expand-lg bg-transparent navbar-dark header__nav p-0">
+                        <div class="header container-fluid">
+                            <div class="">
+                                <a href="#" class="me-auto header__title p-0 navbar-brand">
+                                    Neosoft Technology
+                                </a>
+                            </div>
+
+                            <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                                aria-expanded="false" aria-label="Toggle navigation">
+                                <span class="navbar-toggler-icon"></span>
+                            </button>
+                            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                                <div
+                                    class="d-md-flex justify-content-md-around justify-content-lg-end align-items-md-center w-100">
+                                    <form class="position-relative navbar__options mb-2 mb-lg-0">
+                                        <input type="search" placeholder="Search for sessions/questions and more"
+                                            class="form-control me-2 header__search pe-lg-3 py-2 shadow-none border-0"
+                                            aria-label="Search" />
+                                        <div class="position-absolute header__search-icon">
+                                            <img src="img/Header/search-icon.png" alt="search" />
+                                        </div>
+                                    </form>
+                                    <div class="d-sm-flex align-items-center justify-content-end">
+                                        <ul class="my-2 my-lg-0 navbar-nav ">
+                                            <li class="px-0 navbar__options dropdown welcome__header-dropdown">
+                                                <a class="nav-link dropdown-toggle text-white d-flex justify-content-between align-items-center p-0"
+                                                    href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+                                                    aria-expanded="false">
+                                                    Production
+                                                </a>
+                                                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                                    <li><a class="dropdown-item" href="#">Option 1</a></li>
+                                                    <li><a class="dropdown-item" href="#">Option 2</a></li>
+                                                </ul>
+                                            </li>
+                                            <li class="px-0 navbar__options">
+                                                <div class="nav-item dropdown welcome__header-dropdown">
+                                                    <a class="nav-link p-0 dropdown-toggle text-white d-flex justify-content-between align-items-center"
+                                                        href="#" id="navbarDropdown" role="button"
+                                                        data-bs-toggle="dropdown" aria-expanded="false">
+                                                        Language
+                                                    </a>
+                                                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                                        <li><a class="dropdown-item" href="#">English</a></li>
+                                                        <li><a class="dropdown-item" href="#">Arabic</a></li>
+                                                    </ul>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                        <div class="nav-item dropdown header__profile-drop-down">
+                                            <a class="nav-link dropdown-toggle header__profile-container rounded-circle p-0 pe-2 border-0 bg-transparent d-flex justify-content-between align-items-center"
+                                                href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+                                                aria-expanded="false">
+                                                <img src="img/Header/user-profile.png" alt="user" />
+                                            </a>
+                                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                                <li><a class="dropdown-item" href="#">User</a></li>
+                                                <li><a class="dropdown-item" href="#">Logout</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </nav>
+                    <div class="">
+                        <div
+                            class="dashsection d-flex justify-content-between align-items-md-center flex-column flex-md-row">
+                            <div class="mb-3 mb-md-0">
+                                <div class="d-md-flex align-items-center">
+                                    <h4 class="align-items-center d-flex mb-1 me-2 tertiary-title">
+                                        Dashboard
+                                    </h4>
+                                    <h4 class="tertiary-title d-flex align-items-center mb-1">
+                                        Back to Question List
+                                    </h4>
+                                </div>
+                                <h2 class="secondary-title dashsection__dashboard">
+                                    Add Question Bank
+                                </h2>
+                            </div>
+                            <div class="row gy-3">
+                                <div class="col">
+                                    <button class="header-button d-flex align-items-center">
+                                        <img src="./img/Dashboard/preview.svg" alt="plus" class="header-button__img" />
+                                        <span class="header-button__name">Preview</span>
+                                    </button>
+                                </div>
+                                <div class="col">
+                                    <button class="header-button d-flex align-items-center">
+                                        <img src="./img/Dashboard/save-icon.svg" alt="plus"
+                                            class="header-button__img" />
+                                        <span class="header-button__name">Save</span>
+                                    </button>
+                                </div>
+                                <div class="col">
+                                    <button class="header-button d-flex align-items-center">
+                                        <img src="./img/Dashboard/create-icon.png" alt="plus"
+                                            class="header-button__img" />
+                                        <span class="header-button__name">Save & Add New</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="listing__table-container bg-white rounded-3">
+                            <div class="primary-border rounded-top">
+
+                                <ul class="nav nav-tabs new-assessment d-flex justify-content-between" id="myTab"
+                                    role="tablist">
+                                    <li class="nav nav-item d-flex flex-row mb-2 mb-md-0" role="presentation">
+                                        <button
+                                            class="nav-link file-status__button active p-2 px-lg-5 py-lg-3 mx-3 me-lg-5 "
+                                            id="basic-details-tab" data-bs-toggle="tab" data-bs-target="#basicDetails"
+                                            type="button" role="tab" aria-controls="basicDetails"
+                                            aria-selected="true">Basic Details</button>
+
+                                        <button class="nav-link file-status__button p-2 px-lg-5 py-lg-3 mx-3 me-lg-5"
+                                            id="additional-details-tab" data-bs-toggle="tab"
+                                            data-bs-target="#additionalDetails" type="button" role="tab"
+                                            aria-controls="additionalDetails" aria-selected="true">Additional
+                                            Details</button>
+
+                                        <button class="nav-link file-status__button p-2 px-lg-5 py-lg-3 mx-3 me-lg-5"
+                                            id="layout-tab" data-bs-toggle="tab" data-bs-target="#layout" type="button"
+                                            role="tab" aria-controls="layout" aria-selected="true">Layout</button>
+                                    </li>
+                                    <li class="d-flex ms-3 mb-2 ">
+                                        <div class="dropdown__container-access-status me-2">
+                                            <p class="dropdown__label mb-2">Access Type</p>
+                                            <select class="form-select button red-dropdown "
+                                                aria-label="Default select example">
+                                                <option selected>Select Access</option>
+                                                <option value="1">Access 1</option>
+                                                <option value="2">Access 2</option>
+                                                <option value="3">Access 3</option>
+                                            </select>
+                                        </div>
+                                        <div class="dropdown__container-access-status">
+                                            <p class="dropdown__label mb-2">Status</p>
+                                            <select class="form-select button red-dropdown "
+                                                aria-label="Default select example">
+                                                <option selected>Select Status</option>
+                                                <option value="1">Status 1</option>
+                                                <option value="2">Status 2</option>
+                                                <option value="3">Status 3</option>
+                                            </select>
+                                        </div>
+                                    </li>
+
+                                </ul>
+
+                            </div>
+                        </div>
+
+                        <div class="tab-content new-assessment-feilds" id="myTabContent">
+                            <div class="tab-pane fade show active" id="basicDetails" role="tabpanel"
+                                aria-labelledby="basic-details-tab">
+                                <div class="row mb-4">
+                                    <div class="col">
+                                        <div class="tags-section">
+                                            <h2 class="tags-section__heading">Tags</h2>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="dashed-border pb-4">
+                                    <div class="row px-3">
+                                        <div class="dropdown__container col-12 col-md-6 col-lg-6 mb-2 mb-lg-0 ">
+                                            <label class="dropdown__label mb-2">Question Name</label>
+                                            <input placeholder="Enter Question"
+                                                value="ust type it in your Word document and you will get this paragraph"
+                                                class="create__input border-0 bg-white p-0" disabled />
+                                        </div>
+                                        <div class="dropdown__container col-12 col-md-6 col-lg-2 mb-2 mb-lg-0 ">
+                                            <p class="dropdown__label mb-2">Grade</p>
+                                            <p class="fw-bold">Grade 1</p>
+                                        </div>
+
+                                        <div class="dropdown__container col-12 col-md-6 col-lg-2 mb-2 mb-lg-0 ">
+                                            <p class="dropdown__label mb-2">Subject</p>
+                                            <p class="fw-bold">Science</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row my-4">
+                                    <div class="col">
+                                        <div class="tags-section">
+                                            <h2 class="tags-section__heading">Tags</h2>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row px-3">
+                                    <div class="dropdown__container col-12 col-md-6 col-lg-2 mb-2 mb-lg-0 ">
+                                        <p class="dropdown__label mb-2">Tag Type</p>
+                                        <p class="fw-bold">Lorem</p>
+                                    </div>
+                                    <div class="dropdown__container col-12 col-md-6 col-lg-2 mb-2 mb-lg-0 ">
+                                        <p class="dropdown__label mb-2">Tag Name</p>
+                                        <p class="fw-bold">Math</p>
+                                    </div>
+                                    <div class="dropdown__container col-12 col-md-6 col-lg-2 mb-2 mb-lg-0 ">
+                                        <p class="dropdown__label mb-2">Grade</p>
+                                        <p class="fw-bold">Grade 1</p>
+                                    </div>
+                                    <div class="dropdown__container col-12 col-md-6 col-lg-2 mb-2 mb-lg-0 ">
+                                        <p class="dropdown__label mb-2">Subject</p>
+                                        <p class="fw-bold">Algebra</p>
+                                    </div>
+                                    <div class="dropdown__container col-12 col-md-6 col-lg-4 mb-2 mb-lg-0 ">
+                                        <label class="dropdown__label mb-2">Attach tag to this question</label>
+                                        <input placeholder="Search to add a tag" value="Tag1, Tag2"
+                                            class="create__input border-0 bg-white" disabled />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane fade " id="additionalDetails" role="tabpanel"
+                                aria-labelledby="additional-details-tab">
+                                <div class="row ">
+                                    <div class="dropdown__container col-12 col-md-6 col-lg-6 mb-2 mb-lg-0 ">
+                                        <label class="dropdown__label mb-2">Assessment Name</label>
+                                        <input placeholder="Enter Name" class="create__input" />
+                                    </div>
+                                    <div class="dropdown__container col-12 col-md-6 col-lg-2 mb-2 mb-lg-0 ">
+                                        <p class="dropdown__label mb-2">Grade</p>
+                                        <select class="dropdown-search" style="width: 100%"
+                                            aria-label="Default select example">
+                                            <option selected>Select Grade</option>
+                                            <option value="1">Grade 1</option>
+                                            <option value="2">Grade 2</option>
+                                            <option value="3">Grade 3</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="dropdown__container col-12 col-md-6 col-lg-2 mb-2 mb-lg-0 ">
+                                        <p class="dropdown__label mb-2">Subject</p>
+                                        <select class="dropdown-search" style="width: 100%"
+                                            aria-label="Default select example">
+                                            <option selected>Select Subject</option>
+                                            <option value="1">Subject 1</option>
+                                            <option value="2">Subject 2</option>
+                                            <option value="3">Subject 3</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="row my-5">
+                                    <div class="col">
+                                        <div class="tags-section">
+                                            <h2 class="tags-section__heading">Tags</h2>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="dropdown__container col-12 col-md-6 col-lg-2 mb-2 mb-lg-0 ">
+                                        <p class="dropdown__label mb-2">Tag Name</p>
+                                        <select class="dropdown-search" style="width: 100%"
+                                            aria-label="Default select example">
+                                            <option selected>Select Tag</option>
+                                            <option value="1">Tag 1</option>
+                                            <option value="2">Tag 2</option>
+                                            <option value="3">Tag 3</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="dropdown__container col-12 col-md-6 col-lg-2 mb-2 mb-lg-0 ">
+                                        <p class="dropdown__label mb-2">Grade</p>
+                                        <select class="dropdown-search" style="width: 100%"
+                                            aria-label="Default select example">
+                                            <option selected>Select Grade</option>
+                                            <option value="1">Grade 1</option>
+                                            <option value="2">Grade 2</option>
+                                            <option value="3">Grade 3</option>
+                                        </select>
+                                    </div>
+                                    <div class="dropdown__container col-12 col-md-6 col-lg-2 mb-2 mb-lg-0 ">
+                                        <p class="dropdown__label mb-2">Subject</p>
+                                        <select class="dropdown-search" style="width: 100%"
+                                            aria-label="Default select example">
+                                            <option selected>Select Subject</option>
+                                            <option value="1">English</option>
+                                            <option value="2">Maths</option>
+                                            <option value="3">Physics</option>
+                                        </select>
+                                    </div>
+                                    <div class="dropdown__container col-12 col-md-6 col-lg-5 mb-2 mb-lg-0 ">
+                                        <label class="dropdown__label mb-2">Attach tag to this question</label>
+                                        <input placeholder="Search to add a tag" class="create__input" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane fade" id="layout" role="tabpanel" aria-labelledby="layout-tab">
+                                <div class="row ">
+                                    <div class="dropdown__container col-12 col-md-6 col-lg-6 mb-2 mb-lg-0 ">
+                                        <label class="dropdown__label mb-2">Assessment Name</label>
+                                        <input placeholder="Enter Name" class="create__input" />
+                                    </div>
+                                    <div class="dropdown__container col-12 col-md-6 col-lg-2 mb-2 mb-lg-0 ">
+                                        <p class="dropdown__label mb-2">Grade</p>
+                                        <select class="dropdown-search" style="width: 100%"
+                                            aria-label="Default select example">
+                                            <option selected>Select Grade</option>
+                                            <option value="1">Grade 1</option>
+                                            <option value="2">Grade 2</option>
+                                            <option value="3">Grade 3</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="dropdown__container col-12 col-md-6 col-lg-2 mb-2 mb-lg-0 ">
+                                        <p class="dropdown__label mb-2">Subject</p>
+                                        <select class="dropdown-search" style="width: 100%"
+                                            aria-label="Default select example">
+                                            <option selected>Select Subject</option>
+                                            <option value="1">Subject 1</option>
+                                            <option value="2">Subject 2</option>
+                                            <option value="3">Subject 3</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="tags-section">
+                                            <h2 class="tags-section__heading">Tags</h2>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+
+                                    <div class="dropdown__container col-12 col-md-6 col-lg-2 mb-2 mb-lg-0 ">
+                                        <p class="dropdown__label mb-2">Tag Name</p>
+                                        <select class="dropdown-search" style="width: 100%"
+                                            aria-label="Default select example">
+                                            <option selected>Select Tag</option>
+                                            <option value="1">Tag 1</option>
+                                            <option value="2">Tag 2</option>
+                                            <option value="3">Tag 3</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="dropdown__container col-12 col-md-6 col-lg-2 mb-2 mb-lg-0 ">
+                                        <p class="dropdown__label mb-2">Grade</p>
+                                        <select class="dropdown-search" style="width: 100%"
+                                            aria-label="Default select example">
+                                            <option selected>Select Grade</option>
+                                            <option value="1">Grade 1</option>
+                                            <option value="2">Grade 2</option>
+                                            <option value="3">Grade 3</option>
+                                        </select>
+                                    </div>
+                                    <div class="dropdown__container col-12 col-md-6 col-lg-2 mb-2 mb-lg-0 ">
+                                        <p class="dropdown__label mb-2">Subject</p>
+                                        <select class="dropdown-search" style="width: 100%"
+                                            aria-label="Default select example">
+                                            <option selected>Select Subject</option>
+                                            <option value="1">English</option>
+                                            <option value="2">Maths</option>
+                                            <option value="3">Physics</option>
+                                        </select>
+                                    </div>
+                                    <div class="dropdown__container col-12 col-md-6 col-lg-5 mb-2 mb-lg-0 ">
+                                        <label class="dropdown__label mb-2">Attach tag to this question</label>
+                                        <input placeholder="Search to add a tag" class="create__input" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row gx-0 new-assessment-question questions-menu p-0 mb-3">
+                            <div class="col-12 col-md-3 border-end">
+                                <div class="questions-menu__options">
+                                    <h2 class="questions-menu__title mb-1">Questions</h2>
+                                    <p class="questions-menu__sub-title mb-2 mb-lg-4">Menu</p>
+                                    <div class="row g-0">
+                                        <button class="btn secondary-outline__button col-12 text-start mb-3 ps-3">
+                                            <img src="./img/CreateQuestion/multiple-choice.svg" alt="duplicate"
+                                                class="me-2" />
+                                            <span>Multiple Choice</span>
+                                        </button>
+                                        <button class="btn secondary-outline__button col-12 text-start mb-3 ps-3">
+                                            <img src="./img/CreateQuestion/fill-blanks.svg" alt="duplicate"
+                                                class="me-2" />
+                                            <span>Fill in the blanks</span>
+                                        </button>
+                                        <button class="btn secondary-outline__button col-12 text-start mb-3 ps-3">
+                                            <img src="./img/CreateQuestion/classify-match-order.svg" alt="duplicate"
+                                                class="me-2" />
+                                            <span>Classify, Match & Order</span>
+                                        </button>
+                                        <button class="btn secondary-outline__button col-12 text-start mb-3 ps-3">
+                                            <img src="./img/CreateQuestion/written-recorded.svg" alt="duplicate"
+                                                class="me-2" />
+                                            <span>Written & Recorded</span>
+                                        </button>
+                                        <button class="btn secondary-outline__button col-12 text-start mb-3 ps-3">
+                                            <img src="./img/CreateQuestion/highlight-drawing.svg" alt="duplicate"
+                                                class="me-2" />
+                                            <span>Highlight & Drawing</span>
+                                        </button>
+                                        <button class="btn secondary-outline__button col-12 text-start mb-3 ps-3">
+                                            <img src="./img/CreateQuestion/math.svg" alt="duplicate" class="me-2" />
+                                            <span>Math</span>
+                                        </button>
+                                        <button class="btn secondary-outline__button col-12 text-start mb-3 ps-3">
+                                            <img src="./img/CreateQuestion/graphing.svg" alt="duplicate" class="me-2" />
+                                            <span>Graphing</span>
+                                        </button>
+                                        <button class="btn secondary-outline__button col-12 text-start mb-3 ps-3">
+                                            <img src="./img/CreateQuestion/charts.svg" alt="duplicate" class="me-2" />
+                                            <span>Charts</span>
+                                        </button>
+                                        <button
+                                            class="btn secondary-outline__button active col-12 text-start mb-3 ps-3">
+                                            <img src="./img/CreateQuestion/chemistry.svg" alt="duplicate"
+                                                class="me-2" />
+                                            <span>Chemistry</span>
+                                        </button>
+                                        <button class="btn secondary-outline__button col-12 text-start mb-3 ps-3">
+                                            <img src="./img/CreateQuestion/other.svg" alt="duplicate" class="me-2" />
+                                            <span>Other</span>
+                                        </button>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="col-12 col-md-9 questions-menu__items">
+                                <div class="d-flex justify-content-between align-items-md-center flex-column flex-md-row mb-2 mb-lg-4">
+                                    <div>
+                                        <h2 class="questions-menu__title mb-1">Chemistry</h2>
+                                        <p class="questions-menu__sub-title ">Sub Items</p>
+                                    </div>
+                                    <div class="row gy-3">
+                                        <div class="col">
+                                            <button
+                                                class="btn primary-button-outline rounded-2 d-flex align-items-center">
+                                                <img src="./img/CreateQuestion/back-arrow.svg" alt="plus"
+                                                    class="header-button__img" />
+                                                <span class="">Back</span>
+                                            </button>
+                                        </div>
+                                        <div class="col">
+                                            <button
+                                                class="btn primary-button-outline rounded-2 d-flex align-items-center">
+                                                <img src="./img/CreateQuestion/undo-icon.svg" alt="plus"
+                                                    class="header-button__img" />
+                                                <span class="">Undo</span>
+                                            </button>
+                                        </div>
+                                        <div class="col">
+                                            <button
+                                                class="btn primary-button-outline rounded-2 d-flex align-items-center">
+                                                <img src="./img/CreateQuestion/redo-icon.svg" alt="plus"
+                                                    class="header-button__img" />
+                                                <span class="">Redo</span>
+                                            </button>
+                                        </div>
+                                        <div class="col">
+                                            <button
+                                                class="btn primary-button-outline rounded-2 d-flex align-items-center">
+                                                <img src="./img/Dashboard/help.svg" alt="plus"
+                                                    class="header-button__img" />
+                                                <span class="">Help</span>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="accordion" id="questionItems">
+
+                                    <div class="accordion-item mb-3 mb-md-4">
+                                        <h2 class="accordion-header" id="questionType2">
+                                            <button
+                                                class="accordion-button upoload-file d-flex align-items-center shadow-none"
+                                                type="button" data-bs-toggle="collapse"
+                                                data-bs-target="#questionContent2" aria-expanded="false"
+                                                aria-controls="questionContent2">
+                                                <div class="content w-100 d-flex justify-content-between
+                                                     align-items-center">
+                                                    <div class="details d-flex flex-column">
+                                                        <p>1. &nbsp Chemistry Formula</p>
+                                                    </div>
+                                                </div>
+                                            </button>
+                                        </h2>
+                                        <div id="questionContent2" class="accordion-collapse collapse show"
+                                            aria-labelledby="questionType2" data-bs-parent="#questionItems">
+                                            <div class="accordion-body p-0 px-3 pt-2 pt-lg-4 ">
+                                                <div class="row g-0 mb-2 mb-lg-4">
+                                                    <div class="col">
+                                                        <div class="tags-section">
+                                                            <h2 class="tags-section__heading">Compose Question</h2>
+                                                            <img src="img/Dashboard/cross-red.svg" alt="remove-icon"
+                                                                class="remove-icon">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col d-flex flex-wrap">
+                                                    <div id="container" class="pb-2 pb-lg-5">
+                                                        <div id="editor" class="editor">
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+
+
+                                                <div class="multiple-choice">
+                                                    <div class="row g-0 mb-2 mb-lg-4">
+                                                        <div class="col mt-2 mt-lg-4">
+                                                            <div class="tags-section">
+                                                                <h2 class="tags-section__heading">Template
+                                                                </h2>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="tags-section bg-white secondary-border">
+                                                        <!-- <span
+                                                            class="tags-section p-2 d-inline-block bg-white secondary-dashed-border fw-400 sumofAb">
+                                                            a+b=
+                                                        </span> -->
+                                                    </div>
+
+
+                                                </div>
+                                                <div class="set-correct-answers">
+                                                    <div class="row mb-2 mb-lg-4">
+                                                        <div class="col mt-2 mt-lg-4">
+                                                            <div class="tags-section">
+                                                                <h2 class="tags-section__heading">Set Correct Answer(s)
+                                                                </h2>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="listing__table-container bg-white rounded-3">
+                                                        <div class="">
+
+                                                            <ul class="nav nav-tabs  d-flex justify-content-between align-items-center"
+                                                                id="myTab" role="tablist">
+                                                                <li class="nav nav-item d-flex flex-row mb-2 mb-md-0"
+                                                                    role="presentation">
+                                                                    <button
+                                                                        class="nav-link file-status__button active p-2  py-lg-3 mx-3 me-lg-5 "
+                                                                        id="mcsCorrectAnswerTab" data-bs-toggle="tab"
+                                                                        data-bs-target="#mcsCorrectAnswer" type="button"
+                                                                        role="tab" aria-controls="mcsCorrectAnswer"
+                                                                        aria-selected="true">Correct Answer</button>
+
+                                                                    <button
+                                                                        class="nav-link file-status__button p-2 py-lg-3 mx-3 me-lg-5"
+                                                                        id="mcsAlternativeTab1" data-bs-toggle="tab"
+                                                                        data-bs-target="#mcsAlternative1" type="button"
+                                                                        role="tab" aria-controls="mcsAlternative1"
+                                                                        aria-selected="true">Alternate 1</button>
+
+                                                                    <button
+                                                                        class="nav-link file-status__button p-2 py-lg-3 mx-3 me-lg-5"
+                                                                        id="mcsAlternativeTab2" data-bs-toggle="tab"
+                                                                        data-bs-target="#mcsAlternative2" type="button"
+                                                                        role="tab" aria-controls="mcsAlternative2"
+                                                                        aria-selected="true">Alternate 2</button>
+                                                                </li>
+                                                                <li class="ms-3 mb-2 ">
+                                                                    <button
+                                                                        class="btn primary-button d-flex align-items-center">
+                                                                        <img src="img/Dashboard/add-plus.svg" alt="plus"
+                                                                            class="header-button__img">
+                                                                        Alternative Answer
+                                                                    </button>
+                                                                </li>
+
+                                                            </ul>
+
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="tab-content" id="setCorrectAns1">
+                                                        <div class="tab-pane fade show active" id="mcsCorrectAnswer"
+                                                            role="tabpanel" aria-labelledby="mcsCorrectAnswerTab">
+                                                            <div class="correct-answers">
+                                                                <div class="row g-0 mb-2 mb-lg-3">
+                                                                    <div class="dropdown__container col-12 col-md-6 col-lg-3 pe-md-2 pe-lg-4 mb-2 mb-lg-0 ">
+                                                                        <p class="d-block mb-2 fw-500">Method</p>
+                                                                        <select class="dropdown-search select2-hidden-accessible"
+                                                                            style="width: 100%">
+                                                                            <option>EquivLiteral</option>
+                                                                            <option>200</option>
+                                                                            <option>300</option>
+                                                                            <option>400</option>
+                                                                        </select>
+                                                                    </div>
+                                                                    <div class="col-lg-3  pe-md-2 pe-lg-4 mb-2 mb-lg-0">
+                                                                        <label class="d-block mb-2 fw-500">
+                                                                            Value
+                                                                        </label>
+                                                                        <input value="Nil" class="create-grade__input py-2">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="d-flex flex-column flex-sm-row justify-content-between align-items-sm-center mb-2 mb-lg-3">
+                                                                    <div class="d-md-flex">
+                                                                        <div class="me-3 bg-white  d-flex align-items-center">
+                                                                            <input type="checkbox" class="choice-icon"
+                                                                                id="response">
+                                                                            <label for="response"
+                                                                                class="tags-section__response fw-400">Edit ARIA Label</label>
+                                                                        </div>
+                                                                        <div class="me-3 bg-white  d-flex align-items-center">
+                                                                            <input type="checkbox" class="choice-icon"
+                                                                                id="response">
+                                                                            <label for="response"
+                                                                                class="tags-section__response fw-400">Ignore Order</label>
+                                                                        </div>
+                                                                        <div class="me-3 bg-white  d-flex align-items-center">
+                                                                            <input type="checkbox" class="choice-icon"
+                                                                                id="response">
+                                                                            <label for="response"
+                                                                                class="tags-section__response fw-400">Inverse Result</label>
+                                                                        </div>
+                                                                    </div>
+                                                                    
+                                                                    
+                                                                    <div
+                                                                        class="tag-points bg-white secondary-border d-flex align-items-center justify-content-between">
+                                                                        <h2 class="tags-section__heading">Points</h2>
+                                                                        <p class="tags-section__response fw-400">100</p>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="row g-0 mb-2 mb-lg-3">
+                                                                    <button
+                                                                        class="btn primary-button add_button d-flex align-items-center tags-add">
+                                                                        <img src="img/Dashboard/add-plus.svg" alt="plus"
+                                                                            class="header-button__img" />
+                                                                        Add
+                                                                    </button>
+                                                                </div>
+                                                            </div>
+
+
+                                                        </div>
+
+                                                        <div class="tab-pane fade " id="mcsAlternative1" role="tabpanel"
+                                                            aria-labelledby="mcsAlternativeTab1">
+                                                            <div class="correct-answers">
+                                                                <div class="mb-4 mb-2">
+                                                                    <div class="accordion"
+                                                                        id="accordionExampleResponse">
+                                                                        <div class="accordion-item mb-3 mb-md-4">
+                                                                            <h2 class="accordion-header"
+                                                                                id="questionTyperesponse">
+                                                                                <button
+                                                                                    class="accordion-button response-icon upoload-file d-flex align-items-center shadow-none collapsed"
+                                                                                    type="button"
+                                                                                    data-bs-toggle="collapse"
+                                                                                    data-bs-target="#responseOne"
+                                                                                    aria-expanded="false"
+                                                                                    aria-controls="responseOne">
+                                                                                    <div class="content w-100 d-flex justify-content-between
+                                                                                         align-items-center">
+                                                                                        <div
+                                                                                            class="details d-flex flex-column">
+                                                                                            <p class="fw-500">Response 1
+                                                                                            </p>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </button>
+                                                                            </h2>
+                                                                            <div id="responseOne"
+                                                                                class="accordion-collapse collapse"
+                                                                                aria-labelledby="questionTyperesponse"
+                                                                                data-bs-parent="#accordionExampleResponse">
+                                                                                <div class="accordion-body pt-0">
+
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="row g-0">
+                                                                    <button
+                                                                        class="btn primary-button add_button d-flex align-items-center tags-add">
+                                                                        <img src="img/Dashboard/add-plus.svg" alt="plus"
+                                                                            class="header-button__img" />
+                                                                        Add
+                                                                    </button>
+                                                                </div>
+                                                                <div
+                                                                    class="d-flex flex-column flex-sm-row justify-content-between align-items-sm-center">
+                                                                    <div
+                                                                        class="tags-section bg-white  d-flex align-items-center">
+
+                                                                        <input type="checkbox" class="choice-icon"
+                                                                            id="response">
+                                                                        <label for="response"
+                                                                            class="tags-section__response fw-400">Multiple
+                                                                            response</label>
+
+
+                                                                    </div>
+                                                                    <div
+                                                                        class="tag-points bg-white secondary-border d-flex align-items-center justify-content-between">
+                                                                        <h2 class="tags-section__heading">Points</h2>
+                                                                        <p class="tags-section__response fw-400">100</p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="tab-pane fade" id="mcsAlternative2" role="tabpanel"
+                                                            aria-labelledby="mcsAlternativeTab2">
+                                                            <div class="correct-answers">
+                                                                <div class="mb-4 mb-2">
+                                                                    <div class="accordion"
+                                                                        id="accordionExampleResponse">
+                                                                        <div class="accordion-item mb-3 mb-md-4">
+                                                                            <h2 class="accordion-header"
+                                                                                id="questionTyperesponse">
+                                                                                <button
+                                                                                    class="accordion-button response-icon upoload-file d-flex align-items-center shadow-none collapsed"
+                                                                                    type="button"
+                                                                                    data-bs-toggle="collapse"
+                                                                                    data-bs-target="#responseOne"
+                                                                                    aria-expanded="false"
+                                                                                    aria-controls="responseOne">
+                                                                                    <div class="content w-100 d-flex justify-content-between
+                                                                                         align-items-center">
+                                                                                        <div
+                                                                                            class="details d-flex flex-column">
+                                                                                            <p class="fw-500">Response 1
+                                                                                            </p>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </button>
+                                                                            </h2>
+                                                                            <div id="responseOne"
+                                                                                class="accordion-collapse collapse"
+                                                                                aria-labelledby="questionTyperesponse"
+                                                                                data-bs-parent="#accordionExampleResponse">
+                                                                                <div class="accordion-body pt-0">
+
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="row g-0">
+                                                                    <button
+                                                                        class="btn primary-button add_button d-flex align-items-center tags-add">
+                                                                        <img src="img/Dashboard/add-plus.svg" alt="plus"
+                                                                            class="header-button__img" />
+                                                                        Add
+                                                                    </button>
+                                                                </div>
+                                                                <div
+                                                                    class="d-flex flex-column flex-sm-row justify-content-between align-items-sm-center">
+                                                                    <div
+                                                                        class="tags-section bg-white  d-flex align-items-center">
+
+                                                                        <input type="checkbox" class="choice-icon"
+                                                                            id="response">
+                                                                        <label for="response"
+                                                                            class="tags-section__response fw-400">Multiple
+                                                                            response</label>
+
+
+                                                                    </div>
+                                                                    <div
+                                                                        class="tag-points bg-white secondary-border d-flex align-items-center justify-content-between">
+                                                                        <h2 class="tags-section__heading">Points</h2>
+                                                                        <p class="tags-section__response fw-400">100</p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="accordion-item mb-3 mb-md-4">
+                                        <h2 class="accordion-header" id="questionType3">
+                                            <button
+                                                class="accordion-button upoload-file d-flex align-items-center shadow-none collapsed"
+                                                type="button" data-bs-toggle="collapse"
+                                                data-bs-target="#questionContent3" aria-expanded="false"
+                                                aria-controls="questionContent3">
+                                                <div class="content w-100 d-flex justify-content-between
+                                                     align-items-center">
+                                                    <div class="details d-flex flex-column">
+                                                        <p>2. &nbsp Cloze Chemistry</p>
+                                                    </div>
+                                                </div>
+                                            </button>
+                                        </h2>
+                                        <div id="questionContent3" class="accordion-collapse collapse"
+                                            aria-labelledby="questionType3" data-bs-parent="#questionItems">
+                                            <div class="accordion-body pt-0">
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="accordion-item mb-3 mb-md-4">
+                                        <h2 class="accordion-header" id="questionType4">
+                                            <button
+                                                class="accordion-button upoload-file d-flex align-items-center shadow-none collapsed"
+                                                type="button" data-bs-toggle="collapse"
+                                                data-bs-target="#questionContent4" aria-expanded="false"
+                                                aria-controls="questionContent4">
+                                                <div class="content w-100 d-flex justify-content-between
+                                                     align-items-center">
+                                                    <div class="details d-flex flex-column">
+                                                        <p>3. &nbsp Chemistry Essay With Rich Text</p>
+                                                    </div>
+                                                </div>
+                                            </button>
+                                        </h2>
+                                        <div id="questionContent4" class="accordion-collapse collapse"
+                                            aria-labelledby="questionType4" data-bs-parent="#questionItems">
+                                            <div class="accordion-body pt-0">
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="accordion-item mb-3 mb-md-4">
+                                        <h2 class="accordion-header" id="questionType5">
+                                            <button
+                                                class="accordion-button upoload-file d-flex align-items-center shadow-none collapsed"
+                                                type="button" data-bs-toggle="collapse"
+                                                data-bs-target="#questionContent5" aria-expanded="false"
+                                                aria-controls="questionContent5">
+                                                <div class="content w-100 d-flex justify-content-between
+                                                     align-items-center">
+                                                    <div class="details d-flex flex-column">
+                                                        <p>4. &nbsp Cloze Chemistry With Image</p>
+                                                    </div>
+                                                </div>
+                                            </button>
+                                        </h2>
+                                        <div id="questionContent5" class="accordion-collapse collapse"
+                                            aria-labelledby="questionType5" data-bs-parent="#questionItems">
+                                            <div class="accordion-body pt-0">
+
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.ckeditor.com/ckeditor5/37.1.0/super-build/ckeditor.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script type="text/javascript" src="js/jquery-min.js"></script>
+    <script type="text/javascript" src="js/datatable-min.js"></script>
+    <script type="text/javascript" src="js/datatable.js"></script>
+    <script src="js/ckEditor.js"></script>
+    <script src="js/sidebar.js"></script>
+    <script src="js/select2.min.js"></script>
+
+
+</body>
+
+</html>

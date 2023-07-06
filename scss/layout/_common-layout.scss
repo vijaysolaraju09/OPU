@@ -1,0 +1,193 @@
+.header {
+    padding: 8px 0px;
+    border-bottom: 0.5px solid #ffffff;
+    @include media-breakpoint-up(lg) {
+        padding: 23px 0 21px;
+    }
+    &__title {
+        font-size: rem(16px);
+        @include media-breakpoint-up(lg) {
+            font-size: rem(24px);
+        }
+    }
+    &__search {
+        width: 100%;
+        font-size: rem(13.0667px);
+        padding-left: 30px;
+        @include media-breakpoint-up(lg) {
+            width: 340px;
+            padding: 10px 42px;
+        }
+        &-icon {
+            top: 10px;
+            left: 10px;
+            @include media-breakpoint-up(lg) {
+                left: 12px;
+            }
+        }
+    }
+    &__profile-container {
+        height: 45px;
+        width: 80px;
+    }
+    &__profile-drop-down {
+        .dropdown-menu[data-bs-popper] {
+            left: -75px;
+        }
+    }
+    .dropdown-toggle::after {
+        border: none;
+        height: 10px;
+        width: 10px;
+        vertical-align: 0;
+        background-image: path("dropdown-arrow.svg", img/Header);
+        background-repeat: no-repeat;
+        margin-top: 5px;
+    }
+    .navbar-toggler-icon {
+        height: rem(16px);
+        width: rem(16px);
+    }
+    .navbar-collapse {
+        margin-top: 10px;
+        @include media-breakpoint-up(lg) {
+            margin-top: 0;
+        }
+    }
+    .navbar-nav {
+        flex-direction: row;
+    }
+    .navbar-expand-lg .navbar-collapse {
+        @include media-breakpoint-up(lg) {
+            justify-content: end;
+        }
+    }
+    form.navbar__options {
+        margin: 0;
+        @include media-breakpoint-up(lg) {
+            margin-right: 30px;
+        }
+    }
+    .navbar__options {
+        margin-right: 30px;
+    }
+}
+
+.sidebar {
+    position: fixed;
+    z-index: 1;
+    min-height: 100vh;
+    box-shadow: 0px 6px 25px 6px rgba(0, 0, 0, 0.12);
+    width: 315px;
+    transition: width 0.4s ease-in-out;
+    align-items: start;
+    
+    &__collapsed {
+        left: -105px;
+        width: 104px;
+        align-items: center;
+        .sidebar__expand-icon {
+            padding: 11px 0px 11px 13px;
+        }
+        .sidebar__logo{
+            &--expanded {
+                width: 0;
+            }
+        }
+        
+        .sidebar__options-list {
+            p{
+                transform: scale(0);
+                transition: transform 0.4s;
+            }
+            
+        }
+
+    }
+    .collapse-label {
+        transition: transform .4s;
+        transform: scale(1);
+    }
+    &__logo {
+        padding: 23px 28px 44px 27px;
+        &--expanded {
+            padding: 26px 24px 25px 14px;
+            transition: width .4s;
+            width: 100%;
+        }
+    }
+    &__top-menu {
+        margin: 0 20px;
+    }
+    &__bottom-menu {
+        margin: 0 14px 0 26px;
+    }
+    &__icons--expanded {
+        height: 18px;
+        width: 18px;
+    }
+    &__options-list {
+        list-style: none;
+        color: $sidebar-font-color;
+        padding: 10px 24px;
+        font-size: rem(16px);
+        &:hover,
+        .active {
+            color: $sidebar-font-color;
+            background: #ffe4e6;
+        }
+        p {
+            transform: scale(1);
+            transition: transform .4s;
+        }
+    }
+    &__options-bottom-list {
+        margin-bottom: 20px;
+        &--links {
+            padding: 10px;
+        }
+    }
+    &__user-button {
+        background: $secondary-color;
+    }
+    &__expand-icon {
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        top: 80px;
+        right: -15px;
+        z-index: 1;
+        height: 32px;
+        width: 32px;
+        padding: 11px 13px;
+        .arrow__icon {
+            transform: rotate(0deg);
+            transition: transform 0.4s;
+            &--collapsed {
+                transform: rotate(180deg);
+            }
+        }
+    }
+}
+.author-sidebar::after {
+    position: absolute;
+    content: '';
+    background-image: path("sidebar-arrow.svg",img/Sidebar);
+    background-repeat: no-repeat;
+    height: 12px;
+    width: 7px;
+    top: 16px;
+    right: 28px;
+    
+}
+
+@media (min-width: 1200px) {
+    .sidebar {
+        position: relative;
+        box-shadow: 0px 6px 25px 6px rgba(0, 0, 0, 0.12);
+        &__collapsed {
+            left: 0;
+            .sidebar__expand-icon {
+                padding: 11px 13px;
+            }
+        }
+    }
+}

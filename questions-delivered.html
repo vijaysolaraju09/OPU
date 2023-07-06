@@ -1,0 +1,901 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="css/select2.min.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/dataTables.min.css" />
+    <link rel="stylesheet" href="css/main.css" />
+  </head>
+
+  <body>
+    <div class="d-flex">
+      <aside class="sidebar sidebar__collapsed bg-white d-flex flex-column">
+        <a>
+          <img
+            id="sidebarLogo"
+            src="img/Sidebar/be-assess-logo.png"
+            alt="be-assess"
+            class="sidebar__logo"
+          />
+        </a>
+        <div class="d-flex flex-column justify-content-between h-100 w-100">
+          <ul class="sidebar__top-menu p-0">
+            <li class="list-inline console-drop-down mb-2">
+              <a
+                class="sidebar__options-list rounded d-flex align-items-center"
+              >
+                <img
+                  src="img/Sidebar/console.svg"
+                  alt="console"
+                  class="sidebar__icons sidebar__icons--expanded"
+                />
+                <p class="ms-2 collapse-label d-none">Console</p>
+              </a>
+            </li>
+
+            <li class="d-flex w-100 ps-4 mb-4 collapse-label d-none">
+              <button
+                class="btn primary-button sidebar__user-button shadow-none w-100"
+              >
+                User
+              </button>
+              <button class="btn btn-light shadow-none w-100">Editor</button>
+            </li>
+
+            <li class="list-inline mb-4">
+              <a
+                class="sidebar__options-list rounded d-flex align-items-center"
+              >
+                <img
+                  src="img/Sidebar/dashboard.svg"
+                  alt="dashboard"
+                  class="sidebar__icons sidebar__icons--expanded"
+                />
+                <p class="ms-2 collapse-label d-none">Dashboard</p>
+              </a>
+            </li>
+            <li class="list-inline mb-4">
+              <a
+                class="sidebar__options-list rounded d-flex align-items-center"
+              >
+                <img
+                  src="img/Sidebar/user-management-icon.svg"
+                  alt="user-management"
+                  class="sidebar__icons sidebar__icons--expanded"
+                />
+                <p class="ms-2 collapse-label d-none">User Management</p>
+              </a>
+            </li>
+            <li class="list-inline mb-4">
+              <a
+                class="sidebar__options-list rounded d-flex align-items-center"
+              >
+                <img
+                  src="img/Sidebar/reports-icon.svg"
+                  alt="reports"
+                  class="sidebar__icons sidebar__icons--expanded"
+                />
+                <p class="ms-2 collapse-label d-none">Reports</p>
+              </a>
+            </li>
+            <li class="list-inline mb-4">
+              <a
+                class="sidebar__options-list rounded d-flex align-items-center"
+              >
+                <img
+                  src="img/Sidebar/scoring-module-icon.svg"
+                  alt="scoring-module"
+                  class="sidebar__icons sidebar__icons--expanded"
+                />
+                <p class="ms-2 collapse-label d-none">Scoring Module</p>
+              </a>
+            </li>
+            <li class="list-inline mb-4">
+              <a
+                class="sidebar__options-list rounded d-flex align-items-center"
+              >
+                <img
+                  src="img/Sidebar/inventory-icon.svg"
+                  alt="inventory"
+                  class="sidebar__icons sidebar__icons--expanded"
+                />
+                <p class="ms-2 collapse-label d-none">Document Inventory</p>
+              </a>
+            </li>
+          </ul>
+          <ul class="p-0 mb-3 sidebar__bottom-menu">
+            <li class="list-inline sidebar__options-bottom-list">
+              <a
+                class="sidebar__options-list sidebar__options-bottom-list--links rounded d-flex align-items-center"
+              >
+                <img
+                  src="img/Sidebar/help-icon.svg"
+                  alt="help"
+                  class="sidebar__icons sidebar__icons--expanded"
+                />
+                <p class="ms-1 collapse-label d-none">Help</p>
+              </a>
+            </li>
+            <li class="list-inline sidebar__options-bottom-list mb-0">
+              <a
+                class="sidebar__options-list sidebar__options-bottom-list--links rounded d-flex align-items-center"
+              >
+                <img
+                  src="img/Sidebar/logout-icon.svg"
+                  alt="logout"
+                  class="sidebar__icons sidebar__icons--expanded"
+                />
+                <p class="ms-1 collapse-label d-none">Logout</p>
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <button
+          id="sidebarToggleIcon"
+          class="btn position-absolute bg-white rounded-circle d-flex justify-content-center align-items-center sidebar__expand-icon"
+          onclick="expandSidebar()"
+        >
+          <img
+            id="arrowIcon"
+            src="img/Sidebar/expand-icon.png"
+            class="arrow__icon--collapsed"
+          />
+        </button>
+      </aside>
+      <div class="w-100 main-wrapper">
+        <div class="main-container">
+          <div class="pages-wrapper">
+            <nav class="navbar navbar-expand-lg bg-transparent navbar-dark header__nav p-0">
+              <div class="header container-fluid">
+                  <div class="">
+                      <a href="#" class="me-auto header__title p-0 navbar-brand">
+                          Neosoft Technology
+                      </a>
+                  </div>
+
+                  <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse"
+                      data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                      aria-expanded="false" aria-label="Toggle navigation">
+                      <span class="navbar-toggler-icon"></span>
+                  </button>
+                  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                      <div
+                          class="d-md-flex justify-content-md-around justify-content-lg-end align-items-md-center w-100">
+                          <form class="position-relative navbar__options mb-2 mb-lg-0">
+                              <input type="search" placeholder="Search for sessions/questions and more"
+                                  class="form-control me-2 header__search pe-lg-3 py-2 shadow-none border-0"
+                                  aria-label="Search" />
+                              <div class="position-absolute header__search-icon">
+                                  <img src="img/Header/search-icon.png" alt="search" />
+                              </div>
+                          </form>
+                          <div class="d-sm-flex align-items-center justify-content-end">
+                              <ul class="my-2 my-lg-0 navbar-nav ">
+                                  <li class="px-0 navbar__options dropdown welcome__header-dropdown">
+                                      <a class="nav-link dropdown-toggle text-white d-flex justify-content-between align-items-center p-0" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                          Production
+                                      </a>
+                                      <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                          <li><a class="dropdown-item" href="#">Option 1</a></li>
+                                          <li><a class="dropdown-item" href="#">Option 2</a></li>
+                                      </ul>
+                                  </li>
+                                  <li class="px-0 navbar__options">
+                                      <div class="nav-item dropdown welcome__header-dropdown">
+                                          <a class="nav-link p-0 dropdown-toggle text-white d-flex justify-content-between align-items-center"
+                                              href="#" id="navbarDropdown" role="button"
+                                              data-bs-toggle="dropdown" aria-expanded="false">
+                                              Language
+                                          </a>
+                                          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                              <li><a class="dropdown-item" href="#">English</a></li>
+                                              <li><a class="dropdown-item" href="#">Arabic</a></li>
+                                          </ul>
+                                      </div>
+                                  </li>
+                              </ul>
+                              <div class="nav-item dropdown header__profile-drop-down">
+                                  <a class="nav-link dropdown-toggle header__profile-container rounded-circle p-0 pe-2 border-0 bg-transparent d-flex justify-content-between align-items-center"
+                                      href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+                                      aria-expanded="false">
+                                      <img src="img/Header/user-profile.png" alt="user" />
+                                  </a>
+                                  <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                      <li><a class="dropdown-item" href="#">User</a></li>
+                                      <li><a class="dropdown-item" href="#">Logout</a></li>
+                                  </ul>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </nav>
+            <div class="">
+              <div
+                class="dashsection d-flex justify-content-between align-items-md-center flex-column flex-md-row"
+              >
+                <div
+                  class="mb-3 mb-md-0 d-flex justify-content-between align-items-center d-md-block"
+                >
+                  <h4 class="tertiary-title d-flex align-items-center mb-1">
+                    Dashboard
+                  </h4>
+                  <h2 class="secondary-title dashsection__dashboard">
+                    Questions Delivered
+                  </h2>
+                </div>
+              </div>
+              <!-- <div class="row gy-4">
+                            <div class="col-md-3 col-sm-6">
+                                <div class="d-flex align-items-center justify-content-between delivery-graph">
+                                    <div>
+                                        <h4 class="delivery-graph__heading">Sessions Delivered</h4>
+                                        <h3 class="delivery-graph__value">5,500</h3>
+                                    </div>
+                                    <div class="delivery-graph__doughnut">
+                                        <canvas id="questionsDeliverderOne"></canvas>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3 col-sm-6">
+                                <div class="d-flex align-items-center justify-content-between delivery-graph">
+                                    <div>
+                                        <h4 class="delivery-graph__heading">Sessions Delivered</h4>
+                                        <h3 class="delivery-graph__value">5,500</h3>
+                                    </div>
+                                    <div class="delivery-graph__doughnut">
+                                        <canvas id="questionsDeliverderTwo"></canvas>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3 col-sm-6">
+                                <div class="d-flex align-items-center justify-content-between delivery-graph">
+                                    <div>
+                                        <h4 class="delivery-graph__heading">Sessions Delivered</h4>
+                                        <h3 class="delivery-graph__value">5,500</h3>
+                                    </div>
+                                    <div class="delivery-graph__doughnut">
+                                        <canvas id="questionsDeliverderThree"></canvas>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div> -->
+              <div class="row gy-4">
+                <div class="col-md-3 col-sm-6">
+                  <div
+                    class="d-flex align-items-center justify-content-between delivery-graph"
+                  >
+                    <div>
+                      <h4 class="delivery-graph__heading">
+                        Sessions Delivered
+                      </h4>
+                      <h3 class="delivery-graph__value">5,500</h3>
+                    </div>
+                    <div class="delivery-graph__doughnut">
+                      <canvas id="sessionChartFive"></canvas>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                  <div
+                    class="d-flex align-items-center justify-content-between delivery-graph"
+                  >
+                    <div>
+                      <h4 class="delivery-graph__heading">
+                        Sessions Delivered
+                      </h4>
+                      <h3 class="delivery-graph__value">5,500</h3>
+                    </div>
+                    <div class="delivery-graph__doughnut">
+                      <canvas id="sessionChartSix"></canvas>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                  <div
+                    class="d-flex align-items-center justify-content-between delivery-graph"
+                  >
+                    <div>
+                      <h4 class="delivery-graph__heading">
+                        Sessions Delivered
+                      </h4>
+                      <h3 class="delivery-graph__value">5,500</h3>
+                    </div>
+                    <div class="delivery-graph__doughnut">
+                      <canvas id="sessionChartSeven"></canvas>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="listing__table-container mb-5 bg-white rounded-3 mt-4"
+              >
+                <div class="primary-border rounded-top">
+                  <ul
+                    class="nav nav-tabs file-status"
+                    id="myTab"
+                    role="tablist"
+                  >
+                    <li class="nav-item" role="presentation">
+                      <button
+                        class="nav-link file-status__button active px-0 py-3 ms-3 me-5"
+                        id="success-tab"
+                        data-bs-toggle="tab"
+                        data-bs-target="#successStatus"
+                        type="button"
+                        role="tab"
+                        aria-controls="successStatus"
+                        aria-selected="true"
+                      >
+                        Questions Delivered
+                      </button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                      <button
+                        class="nav-link file-status__button px-0 py-3"
+                        id="error-tab"
+                        data-bs-toggle="tab"
+                        data-bs-target="#errorStatus"
+                        type="button"
+                        role="tab"
+                        aria-controls="errorStatus"
+                        aria-selected="false"
+                      >
+                        Assessments Delivered
+                      </button>
+                    </li>
+                  </ul>
+                  <div class="row my-3">
+                    <div class="col-12 col-lg-11">
+                      <div class="row ms-1">
+                        <div
+                          class="dropdown__container col-12 col-md-6 col-lg-2 mb-2 mb-lg-0"
+                        >
+                          <p class="dropdown__label mb-2">Environment</p>
+                          <select
+                            class="dropdown-search" style="width: 100%"
+                            aria-label="Default select example"
+                          >
+                            <option selected>Select Environment</option>
+                            <option value="1">Environment 1</option>
+                            <option value="2">Environment 2</option>
+                            <option value="3">Environment 3</option>
+                          </select>
+                        </div>
+
+                        <div
+                          class="dropdown__container col-12 col-md-6 col-lg-2 mb-2 mb-lg-0"
+                        >
+                          <p class="dropdown__label mb-2">User Role</p>
+                          <select
+                            class="dropdown-search" style="width: 100%"
+                            aria-label="Default select example"
+                          >
+                            <option selected>Select User Role</option>
+                            <option value="1">User Role 1</option>
+                            <option value="2">User Role 2</option>
+                            <option value="3">User Role 3</option>
+                          </select>
+                        </div>
+                        <div
+                          class="dropdown__container col-12 col-md-6 col-lg-2 mb-2 mb-lg-0"
+                        >
+                          <p class="dropdown__label mb-2">Subject</p>
+                          <select
+                            class="dropdown-search" style="width: 100%"
+                            aria-label="Default select example"
+                          >
+                            <option selected>Select Subject</option>
+                            <option value="1">Subject 1</option>
+                            <option value="2">Subject 2</option>
+                            <option value="3">Subject 3</option>
+                          </select>
+                        </div>
+                        <div
+                          class="dropdown__container col-12 col-md-6 col-lg-2 mb-2 mb-lg-0"
+                        >
+                          <p class="dropdown__label mb-2">From Date</p>
+                          <input type="date" class="date-feild" />
+                        </div>
+                        <div
+                          class="dropdown__container col-12 col-md-6 col-lg-2 mb-2 mb-lg-0"
+                        >
+                          <p class="dropdown__label mb-2">To Date</p>
+                          <input type="date" class="date-feild" />
+                        </div>
+
+                        <div class="col-12 col-md-6 col-lg-2 mt-auto">
+                          <button
+                            class="btn primary-button-outline listing__table-apply-button"
+                          >
+                            Apply
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- <div class="dropdown__container col-12 col-md-6 col-lg-2 mb-2 mb-lg-0 ">
+                                        <p class="dropdown__label mb-2">Grade Name</p>
+                                        <select class="dropdown-search" style="width: 100%" aria-label="Default select example">
+                                            <option selected>Select Grades</option>
+                                            <option value="1">Grade 1</option>
+                                            <option value="2">Grade 2</option>
+                                            <option value="3">Grade 3</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="dropdown__container col-12 col-md-6 col-lg-2 mb-2 mb-lg-0 ">
+                                        <p class="dropdown__label mb-2">Meta tags</p>
+                                        <select class="dropdown-search" style="width: 100%" aria-label="Default select example">
+                                            <option selected>Select Tags</option>
+                                            <option value="1">Tag 1</option>
+                                            <option value="2">Tag 2</option>
+                                            <option value="3">Tag 3</option>
+                                          </select>
+                                    </div>
+                                    <div class="dropdown__container col-12 col-md-6 col-lg-2 mb-2 mb-lg-0 ">
+                                        <p class="dropdown__label mb-2">Subject</p>
+                                        <select class="dropdown-search" style="width: 100%" aria-label="Default select example">
+                                            <option selected>Select Subject</option>
+                                            <option value="1">Subject 1</option>
+                                            <option value="2">Subject 2</option>
+                                            <option value="3">Subject 3</option>
+                                        </select>
+                                    </div>
+                                    <div class="dropdown__container col-12 col-md-6 col-lg-2 mb-2 mb-lg-0 ">
+                                        <p class="dropdown__label mb-2">From Date</p>
+                                        <input type="date" class="date-feild"/>
+                                    </div>
+                                    <div class="dropdown__container col-12 col-md-6 col-lg-2 mb-2 mb-lg-0 ">
+                                        <p class="dropdown__label mb-2">From Date</p>
+                                        <input type="date" class="date-feild"/>
+                                    </div>
+
+                                    <div class="col-12 col-md-4 col-lg-2 mt-auto">
+                                        <button class="btn primary-button-outline listing__table-apply-button">
+                                          Apply
+                                        </button>
+                                    </div> -->
+                    <!-- <div>
+                                        <button class="download-button">
+                                            <img src="./img/Dashboard/download-grid-button.svg" alt="download-btn"/>
+                                        </button>
+                                    </div> -->
+                  </div>
+                </div>
+
+                <div class="tab-content" id="myTabContent">
+                  <div
+                    class="tab-pane fade show active"
+                    id="successStatus"
+                    role="tabpanel"
+                    aria-labelledby="success-tab"
+                  >
+                    <table
+                      id="gradeTable"
+                      class="display data-table__container border"
+                      width="100%"
+                    >
+                      <thead>
+                        <tr>
+                          <th class="table-head-cells">Serial No</th>
+                          <th class="table-head-cells">First Name</th>
+                          <th class="table-head-cells">Last Name</th>
+                          <th class="table-head-cells">User Role</th>
+                          <th class="table-head-cells">Subject</th>
+                          <th class="table-head-cells">Environment</th>
+                          <th class="table-head-cells">Questions Created</th>
+                          <th class="table-head-cells">Questions Punlished</th>
+                          <th class="table-head-cells">Questions Attempted</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>1</td>
+                          <td>John</td>
+                          <td>Wick</td>
+                          <td>Editor</td>
+                          <td>
+                            <select
+                              class="form-select admin-details__dropdown-list px-2 py-1"
+                              aria-label="Default select example"
+                            >
+                              <option selected>All</option>
+                              <option value="1">Science</option>
+                              <option value="2">English</option>
+                              <option value="3">Marathi</option>
+                            </select>
+                          </td>
+                          <td>Production</td>
+                          <td>10000</td>
+                          <td>2000</td>
+                          <td>2000</td>
+                        </tr>
+                        <tr>
+                          <td>1</td>
+                          <td>John</td>
+                          <td>Wick</td>
+                          <td>Editor</td>
+                          <td>
+                            <select
+                              class="form-select admin-details__dropdown-list px-2 py-1"
+                              aria-label="Default select example"
+                            >
+                              <option selected>All</option>
+                              <option value="1">Science</option>
+                              <option value="2">English</option>
+                              <option value="3">Marathi</option>
+                            </select>
+                          </td>
+                          <td>Production</td>
+                          <td>10000</td>
+                          <td>2000</td>
+                          <td>2000</td>
+                        </tr>
+                        <tr>
+                          <td>1</td>
+                          <td>John</td>
+                          <td>Wick</td>
+                          <td>Editor</td>
+                          <td>
+                            <select
+                              class="form-select admin-details__dropdown-list px-2 py-1"
+                              aria-label="Default select example"
+                            >
+                              <option selected>All</option>
+                              <option value="1">Science</option>
+                              <option value="2">English</option>
+                              <option value="3">Marathi</option>
+                            </select>
+                          </td>
+                          <td>Production</td>
+                          <td>10000</td>
+                          <td>2000</td>
+                          <td>2000</td>
+                        </tr>
+                        <tr>
+                          <td>1</td>
+                          <td>John</td>
+                          <td>Wick</td>
+                          <td>Editor</td>
+                          <td>
+                            <select
+                              class="form-select admin-details__dropdown-list px-2 py-1"
+                              aria-label="Default select example"
+                            >
+                              <option selected>All</option>
+                              <option value="1">Science</option>
+                              <option value="2">English</option>
+                              <option value="3">Marathi</option>
+                            </select>
+                          </td>
+                          <td>Production</td>
+                          <td>10000</td>
+                          <td>2000</td>
+                          <td>2000</td>
+                        </tr>
+                        <tr>
+                          <td>1</td>
+                          <td>John</td>
+                          <td>Wick</td>
+                          <td>Editor</td>
+                          <td>
+                            <select
+                              class="form-select admin-details__dropdown-list px-2 py-1"
+                              aria-label="Default select example"
+                            >
+                              <option selected>All</option>
+                              <option value="1">Science</option>
+                              <option value="2">English</option>
+                              <option value="3">Marathi</option>
+                            </select>
+                          </td>
+                          <td>Production</td>
+                          <td>10000</td>
+                          <td>2000</td>
+                          <td>2000</td>
+                        </tr>
+                        <tr>
+                          <td>1</td>
+                          <td>John</td>
+                          <td>Wick</td>
+                          <td>Editor</td>
+                          <td>
+                            <select
+                              class="form-select admin-details__dropdown-list px-2 py-1"
+                              aria-label="Default select example"
+                            >
+                              <option selected>All</option>
+                              <option value="1">Science</option>
+                              <option value="2">English</option>
+                              <option value="3">Marathi</option>
+                            </select>
+                          </td>
+                          <td>Production</td>
+                          <td>10000</td>
+                          <td>2000</td>
+                          <td>2000</td>
+                        </tr>
+                        <tr>
+                          <td>1</td>
+                          <td>John</td>
+                          <td>Wick</td>
+                          <td>Editor</td>
+                          <td>
+                            <select
+                              class="form-select admin-details__dropdown-list px-2 py-1"
+                              aria-label="Default select example"
+                            >
+                              <option selected>All</option>
+                              <option value="1">Science</option>
+                              <option value="2">English</option>
+                              <option value="3">Marathi</option>
+                            </select>
+                          </td>
+                          <td>Production</td>
+                          <td>10000</td>
+                          <td>2000</td>
+                          <td>2000</td>
+                        </tr>
+                        <tr>
+                          <td>1</td>
+                          <td>John</td>
+                          <td>Wick</td>
+                          <td>Editor</td>
+                          <td>
+                            <select
+                              class="form-select admin-details__dropdown-list px-2 py-1"
+                              aria-label="Default select example"
+                            >
+                              <option selected>All</option>
+                              <option value="1">Science</option>
+                              <option value="2">English</option>
+                              <option value="3">Marathi</option>
+                            </select>
+                          </td>
+                          <td>Production</td>
+                          <td>10000</td>
+                          <td>2000</td>
+                          <td>2000</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                  <div
+                    class="tab-pane fade"
+                    id="errorStatus"
+                    role="tabpanel"
+                    aria-labelledby="error-tab"
+                  >
+                    <table
+                      id="gradeTable2"
+                      class="display data-table__container border"
+                      width="100%"
+                    >
+                      <thead>
+                        <tr>
+                          <th class="table-head-cells">Serial No</th>
+                          <th class="table-head-cells">First Name</th>
+                          <th class="table-head-cells">Last Name</th>
+                          <th class="table-head-cells">User Role</th>
+                          <th class="table-head-cells">Subject</th>
+                          <th class="table-head-cells">Environment</th>
+                          <th class="table-head-cells">Assessments Created</th>
+                          <th class="table-head-cells">
+                            Assessments Punlished
+                          </th>
+                          <th class="table-head-cells">
+                            Assessments Attempted
+                          </th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>1</td>
+                          <td>John</td>
+                          <td>Wick</td>
+                          <td>Editor</td>
+                          <td>
+                            <select
+                              class="form-select admin-details__dropdown-list px-2 py-1"
+                              aria-label="Default select example"
+                            >
+                              <option selected>All</option>
+                              <option value="1">Science</option>
+                              <option value="2">English</option>
+                              <option value="3">Marathi</option>
+                            </select>
+                          </td>
+                          <td>Production</td>
+                          <td>10000</td>
+                          <td>2000</td>
+                          <td>2000</td>
+                        </tr>
+                        <tr>
+                          <td>1</td>
+                          <td>John</td>
+                          <td>Wick</td>
+                          <td>Editor</td>
+                          <td>
+                            <select
+                              class="form-select admin-details__dropdown-list px-2 py-1"
+                              aria-label="Default select example"
+                            >
+                              <option selected>All</option>
+                              <option value="1">Science</option>
+                              <option value="2">English</option>
+                              <option value="3">Marathi</option>
+                            </select>
+                          </td>
+                          <td>Production</td>
+                          <td>10000</td>
+                          <td>2000</td>
+                          <td>2000</td>
+                        </tr>
+                        <tr>
+                          <td>1</td>
+                          <td>John</td>
+                          <td>Wick</td>
+                          <td>Editor</td>
+                          <td>
+                            <select
+                              class="form-select admin-details__dropdown-list px-2 py-1"
+                              aria-label="Default select example"
+                            >
+                              <option selected>All</option>
+                              <option value="1">Science</option>
+                              <option value="2">English</option>
+                              <option value="3">Marathi</option>
+                            </select>
+                          </td>
+                          <td>Production</td>
+                          <td>10000</td>
+                          <td>2000</td>
+                          <td>2000</td>
+                        </tr>
+                        <tr>
+                          <td>1</td>
+                          <td>John</td>
+                          <td>Wick</td>
+                          <td>Editor</td>
+                          <td>
+                            <select
+                              class="form-select admin-details__dropdown-list px-2 py-1"
+                              aria-label="Default select example"
+                            >
+                              <option selected>All</option>
+                              <option value="1">Science</option>
+                              <option value="2">English</option>
+                              <option value="3">Marathi</option>
+                            </select>
+                          </td>
+                          <td>Production</td>
+                          <td>10000</td>
+                          <td>2000</td>
+                          <td>2000</td>
+                        </tr>
+                        <tr>
+                          <td>1</td>
+                          <td>John</td>
+                          <td>Wick</td>
+                          <td>Editor</td>
+                          <td>
+                            <select
+                              class="form-select admin-details__dropdown-list px-2 py-1"
+                              aria-label="Default select example"
+                            >
+                              <option selected>All</option>
+                              <option value="1">Science</option>
+                              <option value="2">English</option>
+                              <option value="3">Marathi</option>
+                            </select>
+                          </td>
+                          <td>Production</td>
+                          <td>10000</td>
+                          <td>2000</td>
+                          <td>2000</td>
+                        </tr>
+                        <tr>
+                          <td>1</td>
+                          <td>John</td>
+                          <td>Wick</td>
+                          <td>Editor</td>
+                          <td>
+                            <select
+                              class="form-select admin-details__dropdown-list px-2 py-1"
+                              aria-label="Default select example"
+                            >
+                              <option selected>All</option>
+                              <option value="1">Science</option>
+                              <option value="2">English</option>
+                              <option value="3">Marathi</option>
+                            </select>
+                          </td>
+                          <td>Production</td>
+                          <td>10000</td>
+                          <td>2000</td>
+                          <td>2000</td>
+                        </tr>
+                        <tr>
+                          <td>1</td>
+                          <td>John</td>
+                          <td>Wick</td>
+                          <td>Editor</td>
+                          <td>
+                            <select
+                              class="form-select admin-details__dropdown-list px-2 py-1"
+                              aria-label="Default select example"
+                            >
+                              <option selected>All</option>
+                              <option value="1">Science</option>
+                              <option value="2">English</option>
+                              <option value="3">Marathi</option>
+                            </select>
+                          </td>
+                          <td>Production</td>
+                          <td>10000</td>
+                          <td>2000</td>
+                          <td>2000</td>
+                        </tr>
+                        <tr>
+                          <td>1</td>
+                          <td>John</td>
+                          <td>Wick</td>
+                          <td>Editor</td>
+                          <td>
+                            <select
+                              class="form-select admin-details__dropdown-list px-2 py-1"
+                              aria-label="Default select example"
+                            >
+                              <option selected>All</option>
+                              <option value="1">Science</option>
+                              <option value="2">English</option>
+                              <option value="3">Marathi</option>
+                            </select>
+                          </td>
+                          <td>Production</td>
+                          <td>10000</td>
+                          <td>2000</td>
+                          <td>2000</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/chartjs-plugin-datalabels/2.2.0/chartjs-plugin-datalabels.min.js"
+      integrity="sha512-JPcRR8yFa8mmCsfrw4TNte1ZvF1e3+1SdGMslZvmrzDYxS69J7J49vkFL8u6u8PlPJK+H3voElBtUCzaXj+6ig=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script src="js/questionsDelivered.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
+   
+    <script
+      type="text/javascript"
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"
+    ></script>
+    <script type="text/javascript" src="js/jquery-min.js"></script>
+    <script type="text/javascript" src="js/datatable-min.js"></script>
+    <script type="text/javascript" src="js/datatable.js"></script>
+    <script src="js/sidebar.js"></script>
+    <script src="js/select2.min.js"></script>
+
+  </body>
+</html>

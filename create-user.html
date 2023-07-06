@@ -1,0 +1,540 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/main.css" />
+</head>
+
+<body>
+    <div class="d-flex">
+        <aside class="sidebar sidebar__collapsed bg-white d-flex flex-column">
+            <a>
+                <img id="sidebarLogo" src="img/Sidebar/be-assess-logo.png" alt="be-assess" class="sidebar__logo" />
+            </a>
+            <div class="d-flex flex-column justify-content-between h-100 w-100">
+                <ul class="sidebar__top-menu p-0">
+                    <li class="list-inline console-drop-down mb-2">
+                        <a class="sidebar__options-list rounded d-flex align-items-center">
+                            <img src="img/Sidebar/console.svg" alt="console" class="sidebar__icons sidebar__icons--expanded" />
+                            <p class="ms-2 collapse-label d-none">Console</p>
+                        </a>
+                    </li>
+
+                    <li class="d-flex w-100 ps-4 mb-4 collapse-label d-none">
+                        <button class="btn primary-button sidebar__user-button shadow-none w-100">
+                User
+              </button>
+                        <button class="btn btn-light shadow-none w-100">Editor</button>
+                    </li>
+
+                    <li class="list-inline mb-4">
+                        <a class="sidebar__options-list rounded d-flex align-items-center">
+                            <img src="img/Sidebar/dashboard.svg" alt="dashboard" class="sidebar__icons sidebar__icons--expanded" />
+                            <p class="ms-2 collapse-label d-none">Dashboard</p>
+                        </a>
+                    </li>
+                    <li class="list-inline mb-4">
+                        <a class="sidebar__options-list rounded d-flex align-items-center">
+                            <img src="img/Sidebar/user-management-icon.svg" alt="user-management" class="sidebar__icons sidebar__icons--expanded" />
+                            <p class="ms-2 collapse-label d-none">User Management</p>
+                        </a>
+                    </li>
+                    <li class="list-inline mb-4">
+                        <a class="sidebar__options-list rounded d-flex align-items-center">
+                            <img src="img/Sidebar/reports-icon.svg" alt="reports" class="sidebar__icons sidebar__icons--expanded" />
+                            <p class="ms-2 collapse-label d-none">Reports</p>
+                        </a>
+                    </li>
+                    <li class="list-inline mb-4">
+                        <a class="sidebar__options-list rounded d-flex align-items-center">
+                            <img src="img/Sidebar/scoring-module-icon.svg" alt="scoring-module" class="sidebar__icons sidebar__icons--expanded" />
+                            <p class="ms-2 collapse-label d-none">Scoring Module</p>
+                        </a>
+                    </li>
+                    <li class="list-inline mb-4">
+                        <a class="sidebar__options-list rounded d-flex align-items-center">
+                            <img src="img/Sidebar/inventory-icon.svg" alt="inventory" class="sidebar__icons sidebar__icons--expanded" />
+                            <p class="ms-2 collapse-label d-none">Document Inventory</p>
+                        </a>
+                    </li>
+                </ul>
+                <ul class="p-0 mb-3 sidebar__bottom-menu">
+                    <li class="list-inline sidebar__options-bottom-list">
+                        <a class="sidebar__options-list sidebar__options-bottom-list--links rounded d-flex align-items-center">
+                            <img src="img/Sidebar/help-icon.svg" alt="help" class="sidebar__icons sidebar__icons--expanded" />
+                            <p class="ms-1 collapse-label d-none">Help</p>
+                        </a>
+                    </li>
+                    <li class="list-inline sidebar__options-bottom-list mb-0">
+                        <a class="sidebar__options-list sidebar__options-bottom-list--links rounded d-flex align-items-center">
+                            <img src="img/Sidebar/logout-icon.svg" alt="logout" class="sidebar__icons sidebar__icons--expanded" />
+                            <p class="ms-1 collapse-label d-none">Logout</p>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <button id="sidebarToggleIcon" class="btn position-absolute bg-white rounded-circle d-flex justify-content-center align-items-center sidebar__expand-icon" onclick="expandSidebar()">
+          <img
+            id="arrowIcon"
+            src="img/Sidebar/expand-icon.png"
+            class="arrow__icon--collapsed"
+          />
+        </button>
+        </aside>
+        <div class="w-100 main-wrapper">
+            <div class="main-container">
+                <div class="pages-wrapper">
+                    <nav class="navbar navbar-expand-lg bg-transparent navbar-dark header__nav p-0">
+                        <div class="header container-fluid">
+                            <div class="">
+                                <a href="#" class="me-auto header__title p-0 navbar-brand">
+                                    Neosoft Technology
+                                </a>
+                            </div>
+
+                            <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                                aria-expanded="false" aria-label="Toggle navigation">
+                                <span class="navbar-toggler-icon"></span>
+                            </button>
+                            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                                <div
+                                    class="d-md-flex justify-content-md-around justify-content-lg-end align-items-md-center w-100">
+                                    <form class="position-relative navbar__options mb-2 mb-lg-0">
+                                        <input type="search" placeholder="Search for sessions/questions and more"
+                                            class="form-control me-2 header__search pe-lg-3 py-2 shadow-none border-0"
+                                            aria-label="Search" />
+                                        <div class="position-absolute header__search-icon">
+                                            <img src="img/Header/search-icon.png" alt="search" />
+                                        </div>
+                                    </form>
+                                    <div class="d-sm-flex align-items-center justify-content-end">
+                                        <ul class="my-2 my-lg-0 navbar-nav ">
+                                            <li class="px-0 navbar__options dropdown welcome__header-dropdown">
+                                                <a class="nav-link dropdown-toggle text-white d-flex justify-content-between align-items-center p-0" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                                    Production
+                                                </a>
+                                                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                                    <li><a class="dropdown-item" href="#">Option 1</a></li>
+                                                    <li><a class="dropdown-item" href="#">Option 2</a></li>
+                                                </ul>
+                                            </li>
+                                            <li class="px-0 navbar__options">
+                                                <div class="nav-item dropdown welcome__header-dropdown">
+                                                    <a class="nav-link p-0 dropdown-toggle text-white d-flex justify-content-between align-items-center"
+                                                        href="#" id="navbarDropdown" role="button"
+                                                        data-bs-toggle="dropdown" aria-expanded="false">
+                                                        Language
+                                                    </a>
+                                                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                                        <li><a class="dropdown-item" href="#">English</a></li>
+                                                        <li><a class="dropdown-item" href="#">Arabic</a></li>
+                                                    </ul>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                        <div class="nav-item dropdown header__profile-drop-down">
+                                            <a class="nav-link dropdown-toggle header__profile-container rounded-circle p-0 pe-2 border-0 bg-transparent d-flex justify-content-between align-items-center"
+                                                href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+                                                aria-expanded="false">
+                                                <img src="img/Header/user-profile.png" alt="user" />
+                                            </a>
+                                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                                <li><a class="dropdown-item" href="#">User</a></li>
+                                                <li><a class="dropdown-item" href="#">Logout</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </nav>
+                    <div class="dashsection d-flex justify-content-between align-items-md-center flex-column flex-md-row">
+                        <div class="mb-3 mb-md-0 d-flex justify-content-between align-items-center d-md-block">
+                            <div class="align-items-center d-flex">
+                                <h4 class="align-items-center d-flex mb-1 me-2 tertiary-title">
+                                    Dashboard
+                                </h4>
+                                <h4 class="tertiary-title d-flex align-items-center mb-1">
+                                    User Mangement
+                                </h4>
+                            </div> 
+                            <h2 class="secondary-title dashsection__dashboard">
+                                Create User
+                            </h2>
+                        </div>
+                        <div class="row gy-3">
+
+                            <div class="col">
+                                <button class="header-button d-flex align-items-center">
+                                    <img
+                                        src="./img/Dashboard/bulk-upload-icon.png"
+                                        alt="plus"
+                                        class="header-button__img"
+                                    />
+                                    <span class="header-button__name">Bulk Upload</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mb-5">
+                        <div class="create-grade__container bg-white">
+                            <div class="row">
+                                <div class="col-lg-6 mb-2 mb-lg-4">
+                                    <div class="pe-lg-4 w-100 ">
+                                        <label class="d-block mb-2 fw-500">
+                              First Name<span class="mandatory--mark">*</span>
+                            </label>
+                                        <input placeholder="Enter First Name" class="create-grade__input" />
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 mb-2 mb-lg-4">
+                                    <div class="pe-lg-4 w-100">
+                                        <label class="d-block mb-2 fw-500">
+                              Last Name<span class="mandatory--mark">*</span>
+                            </label>
+                                        <input placeholder="Enter Last Name" class="create-grade__input" />
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 mb-2 mb-lg-4">
+                                    <div class="pe-lg-4 w-100">
+                                        <label class="d-block mb-2 fw-500">
+                              Email <span class="mandatory--mark">*</span>
+                            </label>
+                                        <input placeholder="Enter Email" class="create-grade__input" />
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 mb-2 mb-lg-4">
+                                    <div class="pe-lg-4 w-100">
+                                        <label class="d-block mb-2 fw-500">
+                            Password <span class="mandatory--mark">*</span>
+                            </label>
+                                        <input type="password" class="create-grade__input" />
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 mb-2 mb-lg-4">
+                                    <div class="pe-lg-4 w-100">
+                                        <label class="d-block mb-2 fw-500">
+                            Confirm Password <span class="mandatory--mark">*</span>
+                            </label>
+                                        <input type="password" class="create-grade__input" />
+                                    </div>
+                                </div>
+                                <div class="col-lg-12 mb-3 mb-md-5">
+                                    <div class="pe-lg-4 w-100 ">
+                                        <label class="d-block mb-2 fw-500">User Role</label>
+                                        <div class="d-flex create-grade__radiobuttons flex-wrap">
+                                            <div class="forgap" onclick="adminDisplay()" id="admin">
+                                                <div class="forborders"><label class="label-container">
+                                  <input type="checkbox"id="admin-check">
+                                  <span class="checkmark" id="defaultcheck"></span> Admin
+                                  </label>
+                                                </div>
+                                            </div>
+                                            <div class="forgap" onclick="editorDisplay()" id="editor">
+                                                <div class="forborders"><label class="label-container">
+                                  <input type="checkbox" id="editor-check">
+                                  <span class="checkmark"></span>Editor
+                                  </label></div>
+                                            </div>
+                                            <div class="forgap" onclick="teacherDisplay()" id="teacher">
+                                                <div class="forborders"><label class="label-container">
+                                  <input type="checkbox" id="teacher-check">
+                                  <span class="checkmark"></span>Teacher
+                                  </label></div>
+                                            </div>
+                                            <!-- <div class="create-grade__radios d-flex align-items-center" onclick="adminDisplay()" id="admin">
+                                <div class="create-grade__custom-radio">
+                                <img
+                                  src='./img/Dashboard/radiocheckmark.svg'
+                                  alt="checkamark"
+                                />
+                              </div>
+                                    <input type="radio" id="admin"/>
+                                    <label for='admin'>Admin</label>
+                                </div>
+                                <div class="create-grade__radios d-flex align-items-center" onclick="editorDisplay()" id="editor">
+                                <div class="create-grade__custom-radio">
+                                <img
+                                src='./img/Dashboard/radiocheckmark.svg'
+                                  alt="checkamark"
+                                />
+                              </div>
+                                    <input type="radio" id="editor"/>
+                                    <label for='editor'>Editor</label>
+                                </div>
+                                <div class="create-grade__radios d-flex align-items-center" onclick="teacherDisplay()" id="teacher">
+                                <div class="create-grade__custom-radio">
+                                <img
+                                src='./img/Dashboard/radiocheckmark.svg'  
+                                  alt="checkamark"
+                                />
+                              </div>
+                                    <input type="radio" id="teacher"/>
+                                    <label for='teacher'>Teacher</label>
+                                </div> -->
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="col-lg-12 admin-data" id="admindetails">
+                                    <div class="admin-details mb-5">
+                                        <h3 class="admin-details__heading">Admin Details</h3>
+                                        <div class="row admin-details__borders">
+                                            <div class="col-md-4 col-sm-4">
+                                                <span class="fw-500 admin-details__startext">Select Item bank(s) access</span><span class="mandatory--mark">*</span>
+                                            </div>
+                                            <div class="col-md-3 col-sm-4">
+                                                <div class="d-flex align-items-center mt-2 mt-sm-0">
+                                                    <input type="checkbox" id="production" />
+                                                    <label for="production" class="admin-details__checktext fw-500">Publishing Production</label>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3 col-sm-4">
+                                                <div class="d-flex align-items-center mt-3 mt-sm-0">
+                                                    <input type="checkbox" id="development" />
+                                                    <label for="development" class="admin-details__checktext fw-500">Publishing Development</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row admin-details__roles">
+                                            <div class="col-md-4 col-sm-4">
+                                                <span class="fw-500 admin-details__startext">Set default user roles for all item banks</span><span class="mandatory--mark">*</span>
+                                            </div>
+                                            <div class="col-md-3 col-sm-4">
+                                                <div class="d-flex align-items-center admin-details__checkbottom mt-2">
+                                                    <input type="checkbox" id="question" />
+                                                    <label for="question" class="admin-details__checktext fw-500">Question Manager</label>
+                                                </div>
+                                                <div class="d-flex align-items-center admin-details__checkbottom">
+                                                    <input type="checkbox" id="assessment" />
+                                                    <label for="assessment" class="admin-details__checktext fw-500">Assessment Manager</label>
+                                                </div>
+                                                <div class="d-flex align-items-center admin-details__checkbottom">
+                                                    <input type="checkbox" id="tag" />
+                                                    <label for="tag" class="admin-details__checktext fw-500">Tag Manager</label>
+                                                </div>
+                                                <div>
+                                                    <p class="fw-500 admin-details__dropdown-heading">Subjects</p>
+                                                    <select class="form-select admin-details__dropdown-list mt-2" aria-label="Default select example">
+                                          <option selected>All</option>
+                                          <option value="1">One</option>
+                                          <option value="2">Two</option>
+                                          <option value="3">Three</option>
+                                        </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3 col-sm-4 mb-3">
+                                                <div class="d-flex align-items-center admin-details__checkbottom mt-2">
+                                                    <input type="checkbox" id="user" />
+                                                    <label for="user" class="admin-details__checktext fw-500">User Management</label>
+                                                </div>
+                                                <div class="d-flex align-items-center admin-details__checkbottom">
+                                                    <input type="checkbox" id="reports" />
+                                                    <label for="reports" class="admin-details__checktext fw-500">Reports</label>
+                                                </div>
+                                                <div class="d-flex align-items-center admin-details__checkbottom">
+                                                    <input type="checkbox" id="scoring" />
+                                                    <label for="scoring" class="admin-details__checktext fw-500">Scoring</label>
+                                                </div>
+                                                <div class="mt-2">
+                                                    <p class="fw-500 admin-details__dropdown-heading">Grades</p>
+                                                    <select class="form-select admin-details__dropdown-list mt-2" aria-label="Default select example">
+                                          <option selected>All</option>
+                                          <option value="1">One</option>
+                                          <option value="2">Two</option>
+                                          <option value="3">Three</option>
+                                        </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-12 editor-data" id="editordetails">
+
+                                    <div class="admin-details mb-5">
+                                        <h3 class="admin-details__heading">Admin Details</h3>
+                                        <div class="row admin-details__borders">
+                                            <div class="col-md-4 col-sm-4">
+                                                <span class="fw-500 admin-details__startext">Select Item bank(s) access</span><span class="mandatory--mark">*</span>
+                                            </div>
+                                            <div class="col-md-3 col-sm-4">
+                                                <div class="d-flex align-items-center mt-2 mt-sm-0">
+                                                    <input type="checkbox" id="production" />
+                                                    <label for="production" class="admin-details__checktext fw-500">Publishing Production</label>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3 col-sm-4">
+                                                <div class="d-flex align-items-center mt-3 mt-sm-0">
+                                                    <input type="checkbox" id="development" />
+                                                    <label for="development" class="admin-details__checktext fw-500">Publishing Development</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row admin-details__roles">
+                                            <div class="col-md-4 col-sm-4">
+                                                <span class="fw-500 admin-details__startext">Set default user roles for all item banks</span><span class="mandatory--mark">*</span>
+                                            </div>
+                                            <div class="col-md-3 col-sm-4">
+                                                <div class="d-flex align-items-center admin-details__checkbottom mt-2">
+                                                    <input type="checkbox" id="question" />
+                                                    <label for="question" class="admin-details__checktext fw-500">Question Manager</label>
+                                                </div>
+                                                <div class="d-flex align-items-center admin-details__checkbottom">
+                                                    <input type="checkbox" id="assessment" />
+                                                    <label for="assessment" class="admin-details__checktext fw-500">Assessment Manager</label>
+                                                </div>
+                                                <div class="d-flex align-items-center admin-details__checkbottom">
+                                                    <input type="checkbox" id="tag" />
+                                                    <label for="tag" class="admin-details__checktext fw-500">Tag Manager</label>
+                                                </div>
+                                                <div>
+                                                    <p class="fw-500 admin-details__dropdown-heading">Subjects</p>
+                                                    <select class="form-select admin-details__dropdown-list mt-2" aria-label="Default select example">
+                                          <option selected>All</option>
+                                          <option value="1">One</option>
+                                          <option value="2">Two</option>
+                                          <option value="3">Three</option>
+                                        </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3 col-sm-4 mb-3">
+                                                <div class="d-flex align-items-center admin-details__checkbottom mt-2">
+                                                    <input type="checkbox" id="user" />
+                                                    <label for="user" class="admin-details__checktext fw-500">User Management</label>
+                                                </div>
+                                                <div class="d-flex align-items-center admin-details__checkbottom">
+                                                    <input type="checkbox" id="reports" />
+                                                    <label for="reports" class="admin-details__checktext fw-500">Reports</label>
+                                                </div>
+                                                <div class="d-flex align-items-center admin-details__checkbottom">
+                                                    <input type="checkbox" id="scoring" />
+                                                    <label for="scoring" class="admin-details__checktext fw-500">Scoring</label>
+                                                </div>
+                                                <div class="mt-2">
+                                                    <p class="fw-500 admin-details__dropdown-heading">Grades</p>
+                                                    <select class="form-select admin-details__dropdown-list mt-2" aria-label="Default select example">
+                                          <option selected>All</option>
+                                          <option value="1">One</option>
+                                          <option value="2">Two</option>
+                                          <option value="3">Three</option>
+                                        </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-12 teacher-data" id="teacherdetails">
+
+                                    <div class="admin-details mb-5">
+                                        <h3 class="admin-details__heading">Admin Details</h3>
+                                        <div class="row admin-details__borders">
+                                            <div class="col-md-4 col-sm-4">
+                                                <span class="fw-500 admin-details__startext">Select Item bank(s) access</span><span class="mandatory--mark">*</span>
+                                            </div>
+                                            <div class="col-md-3 col-sm-4">
+                                                <div class="d-flex align-items-center mt-2 mt-sm-0">
+                                                    <input type="checkbox" id="production" />
+                                                    <label for="production" class="admin-details__checktext fw-500">Publishing Production</label>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3 col-sm-4">
+                                                <div class="d-flex align-items-center mt-3 mt-sm-0">
+                                                    <input type="checkbox" id="development" />
+                                                    <label for="development" class="admin-details__checktext fw-500">Publishing Development</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row admin-details__roles">
+                                            <div class="col-md-4 col-sm-4">
+                                                <span class="fw-500 admin-details__startext">Set default user roles for all item banks</span><span class="mandatory--mark">*</span>
+                                            </div>
+                                            <div class="col-md-3 col-sm-4">
+                                                <div class="d-flex align-items-center admin-details__checkbottom mt-2">
+                                                    <input type="checkbox" id="question" />
+                                                    <label for="question" class="admin-details__checktext fw-500">Question Manager</label>
+                                                </div>
+                                                <div class="d-flex align-items-center admin-details__checkbottom">
+                                                    <input type="checkbox" id="assessment" />
+                                                    <label for="assessment" class="admin-details__checktext fw-500">Assessment Manager</label>
+                                                </div>
+                                                <div class="d-flex align-items-center admin-details__checkbottom">
+                                                    <input type="checkbox" id="tag" />
+                                                    <label for="tag" class="admin-details__checktext fw-500">Tag Manager</label>
+                                                </div>
+                                                <div>
+                                                    <p class="fw-500 admin-details__dropdown-heading">Subjects</p>
+                                                    <select class="form-select admin-details__dropdown-list mt-2" aria-label="Default select example">
+                                          <option selected>All</option>
+                                          <option value="1">One</option>
+                                          <option value="2">Two</option>
+                                          <option value="3">Three</option>
+                                        </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3 col-sm-4 mb-3">
+                                                <div class="d-flex align-items-center admin-details__checkbottom mt-2">
+                                                    <input type="checkbox" id="user" />
+                                                    <label for="user" class="admin-details__checktext fw-500">User Management</label>
+                                                </div>
+                                                <div class="d-flex align-items-center admin-details__checkbottom">
+                                                    <input type="checkbox" id="reports" />
+                                                    <label for="reports" class="admin-details__checktext fw-500">Reports</label>
+                                                </div>
+                                                <div class="d-flex align-items-center admin-details__checkbottom">
+                                                    <input type="checkbox" id="scoring" />
+                                                    <label for="scoring" class="admin-details__checktext fw-500">Scoring</label>
+                                                </div>
+                                                <div class="mt-2">
+                                                    <p class="fw-500 admin-details__dropdown-heading">Grades</p>
+                                                    <select class="form-select admin-details__dropdown-list mt-2" aria-label="Default select example">
+                                          <option selected>All</option>
+                                          <option value="1">One</option>
+                                          <option value="2">Two</option>
+                                          <option value="3">Three</option>
+                                        </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-12" id="disablebuttons">
+                                    <div class="pe-lg-4 text-end">
+                                        <button class="btn secondary-button-outline create-grade__save-button ">
+                              Save
+                            </button>
+                                        <button class="btn secondary-button-outline create-grade__save-add-button">
+                              Save & Add New
+                            </button>
+                                    </div>
+                                </div>
+                                <div class="col-lg-12 active-buttons" id="activebuttons">
+                                    <div class="pe-lg-4 text-end">
+                                        <button class="btn primary-button-outline create-grade__save-button ">
+                                Save
+                              </button>
+                                        <button class="btn primary-button-outline create-grade__save-add-button">
+                                Save & Add New
+                              </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="js/sidebar.js"></script>
+    <script src="js/edituserdisplay.js"></script>
+    <script src="js/select2.min.js"></script>
+
+</body>
+
+</html>

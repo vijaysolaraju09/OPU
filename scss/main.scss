@@ -1,0 +1,47 @@
+/*!
+ * Bootstrap v5.0.2 (https://getbootstrap.com/)
+ * Copyright 2011-2021 The Bootstrap Authors
+ * Copyright 2011-2021 Twitter, Inc.
+ * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
+ */
+
+// scss-docs-start import-stack
+// Configuration
+@import "functions";
+@import "custom-variables";
+@import "variables";
+@import "mixins";
+@import "utilities";
+@import "custom-mixins";
+
+// Layout & components
+
+
+// Helpers
+@import "helpers";
+
+// include fonts
+@import "addons/inter";
+
+// Utilities
+@import "utilities/rem";
+@import "utilities/api";
+// scss-docs-end import-stack
+
+// Custom styles
+//add custom module css here
+// @import "layout/vendor-registration";
+// @import "layout/dashboard";
+// @import "layout/home";
+@import "layout/common";
+@import "layout/login-page";
+@import "layout/common-layout";
+@import "layout/welcome-page";
+@import "layout/grade";
+
+//---kumar---//
+@import "layout/dashboard";
+@import "layout/usermanagement";
+@import "layout/profile";
+@import "layout/tags";
+@import "layout/create-questions";

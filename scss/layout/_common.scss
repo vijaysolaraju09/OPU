@@ -1,0 +1,513 @@
+html {
+    font-size: 16px;
+}
+
+body {
+    font-family: $base-font;
+    background: $white-color;
+    color: $primary-font-color;
+    position: relative;
+    font-size: rem(14px);
+}
+
+// main {
+//   position: relative;
+// }
+ul {
+    margin: 0;
+    padding: 0;
+    li {
+        list-style: none;
+        a {
+            text-decoration: none;
+        }
+    }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+    margin: 0;
+}
+
+a {
+    text-decoration: none;
+    transition: 0.2s ease-in-out;
+}
+
+$count: 10;
+@for $i from 6 through $count {
+    .fs-#{$i * 2} {
+        font-size: #{$i * 2}px !important;
+    }
+}
+
+.primary-border {
+    border: $table-border;
+}
+.secondary-border {
+    border: $dropdown-border;
+}
+.secondary-dashed-border{
+    border: 2px dashed #ECECEC;
+} 
+
+.border-end {
+    border-right: 1px solid #D9D9D9 !important;
+}
+
+.dashed-border {
+    border-bottom: 1px dashed rgba(53, 54, 58, 0.2);
+}
+
+table.dataTable .text-danger {
+    color: $primary-color !important;
+}
+
+//---------------------------------|MY CODE|----------------
+button {
+    font-size: rem(14px);
+}
+.btn {
+    &:focus {
+        box-shadow: none;
+    }
+}
+::placeholder {
+    color: $input-placeholder-color;
+    font-size: rem(12px);
+    font-family: "Inter";
+}
+
+input[type=checkbox]:checked {
+    accent-color: #de2128;
+}
+
+//buttons
+.sidebar__expand-icon.btn:focus {
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.primary-button {
+    background: $primary-color;
+    color: $white-color;
+    border-radius: 8px;
+    font-size: rem(14px);
+    &:hover,
+    &:focus {
+        color: $primary-color;
+        background-color: $white-color;
+        border: 1px solid $primary;
+    }
+}
+
+.primary-button-outline {
+    color: $primary-color;
+    border-radius: 8px;
+    font-size: rem(14px);
+    border: 1px solid $primary-color;
+    &:hover,
+    &:focus {
+        background: $primary-color;
+        color: $white-color;
+
+        img{
+            filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(7499%) hue-rotate(314deg) brightness(103%) contrast(99%);
+        }
+    }
+}
+
+.secondary-outline__button {
+    color: $primary-font-color;
+    border-radius: 8px;
+    font-size: rem(14px);
+    border: 1px solid $primary-font-color;
+    &:hover,
+    &:focus {
+        background: $primary-font-color;
+        color: $white-color;
+    }
+}
+
+//layout
+.main-container::before {
+    content: "";
+    background: $primary-linear-gradient;
+    height: 228px;
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: -1;
+}
+
+.main-container {
+    position: relative;
+}
+
+.pages-wrapper {
+    padding: 0 15px;
+    @include media-breakpoint-up(lg) {
+        padding: 0 34px 0 22px;
+    }
+}
+
+//dashboard
+.header-button {
+    border-radius: 8px;
+    border: none;
+    background-color: $white-color;
+    padding: 10px 16px;
+    width: max-content;
+    @include media-breakpoint-down(sm) {
+        padding: 9px 7px;
+    }
+    &__img {
+        height: 14px;
+        width: 14px;
+        margin-right: 10px;
+    }
+    &__name {
+        font-weight: 400;
+        font-size: rem(14px);
+        line-height: 17px;
+        color: $primary-color;
+    }
+}
+
+//main-data-container
+.main__container {
+    border: $table-border;
+    border-radius: 8px 8px 0px 0px;
+    padding: 15px;
+    @include media-breakpoint-up(md) {
+        padding: 30px 30px 40px 30px;
+    }
+}
+
+//status buttons
+.status {
+    font-size: rem(12px);
+    text-align: center;
+    color: $white-color;
+    &__published {
+        background: $status-success-bg-color;
+    }
+    &__unpublished {
+        background: $status-danger-bg-color;
+    }
+    &__archived {
+        background: $status-primary-bg-color;
+    }
+    &__draft {
+        background: $status-warning-bg-color;
+    }
+}
+
+//dropdown
+.create__input-field {
+    border: $dropdown-border;
+    padding: 10px 14px;
+    color: $light-gray-color;
+    border-radius: 5px;
+    width: 100%;
+}
+
+//------------gradeselect----------//
+.form-select {
+    background-image: path("dropdown-icon.svg", img/Dashboard);
+    background-size: 11px 12px;
+    &:focus {
+        box-shadow: none;
+    }
+    &.button {
+        @extend .create__input-field;
+        font-size: rem(12px);
+        &:focus {
+            box-shadow: none;
+        }
+    }
+    &.red-dropdown{
+        background-image: path("red-dropdown.svg", img/Dashboard);
+    }
+}
+
+.dropdown {
+    &__label,
+    &__button {
+        font-size: rem(12px);
+    }
+    &__button {
+        @extend .create__input-field;
+        width: 160px;
+    }
+    &-toggle::after {
+        border: none;
+        background-image: path("dropdown-icon.png", img/Dashboard);
+        margin-left: 0;
+        height: 6px;
+        width: 10px;
+    }
+    &-menu {
+        width: 100%;
+    }
+    &__container {
+        // margin-right: 8px;;
+        .date-feild {
+            @extend .create__input-field;
+            font-size: rem(12px);
+            &:focus-visible {
+                outline: none;
+            }
+        }
+    }
+}
+
+table .admin-details__dropdown-list {
+    min-width: 93px;
+}
+
+//scroll bar
+table {
+    /* width */
+     ::-webkit-scrollbar {
+        width: 5px;
+        height: 5px;
+    }
+    /* Track */
+     ::-webkit-scrollbar-track {
+        background: #f1f1f1;
+    }
+    /* Handle */
+     ::-webkit-scrollbar-thumb {
+        border-radius: 5px;
+        background: #888;
+    }
+    /* Handle on hover */
+     ::-webkit-scrollbar-thumb:hover {
+        background: #555;
+    }
+}
+
+///-------------kumar------------//
+.create-grade {
+    &__container {
+        border: $table-border;
+        border-radius: 8px 8px 0px 0px;
+        padding: 15px;
+        @include media-breakpoint-up(md) {
+            padding: 30px 30px 40px 30px;
+        }
+    }
+}
+
+@media screen and (max-width:575px) {
+    .header-button {
+        padding: 9px 7px;
+    }
+}
+
+.secondary-button-outline {
+    border-radius: 8px;
+    font-size: rem(14px);
+    border: 1px solid $light-grey;
+    color: $light-grey;
+    &:hover,
+    &:focus {
+        background: $primary-color;
+        color: $white-color;
+    }
+}
+
+.delivery-graph {
+    background-color: $grey-300;
+    padding: 26px 16px;
+    border-radius: 8px;
+    &__heading {
+        font-weight: 400;
+        font-size: rem(14px);
+        line-height: 17px;
+        color: $black-100;
+    }
+    &__value {
+        font-weight: 700;
+        font-size: rem(18px);
+        line-height: 22px;
+        margin-top: 4px;
+        color: $primary-font-color;
+    }
+    &__doughnut {
+        width: 46px;
+        height: 47px;
+    }
+}
+
+option::before {
+    font-size: rem(12px);
+    content: attr(value);
+}
+
+@include media-breakpoint-up(lg) {
+    option::before {
+        content: attr(title);
+    }
+}
+
+.fw-500{
+    font-weight: 500;
+}
+
+//--------------------------add questions layout-------------------
+.layout{
+    &__wrapper {
+        padding: 16px 18px 10px 18px;
+        &.active {
+            box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
+        }
+    }
+    &__container {
+        height: 121px;
+        border: 1px solid #DE2128;
+        .bg-danger {
+            background: #DE2128 !important;
+        }
+    }
+    &__options {
+        border-top: 2.5px solid #E8E8E8;
+        border-bottom: 1px solid #E8E8E8;
+        padding: 10px;
+
+        @include media-breakpoint-up(lg) {
+            padding:35px 0 25px 30px;
+        }
+    }
+    
+}
+
+.fw-500{
+    font-weight: 500;
+}
+.fw-600{
+    font-weight: 600;
+}
+.fw-400{
+    font-weight: 400;
+}
+
+//-------------------------select tags styling------------------
+.select2 {
+
+
+    .selection {
+        display: flex;
+
+        .mCSB_inside>.mCSB_container {
+            margin-right: 0;
+        }
+    }
+    
+    &-container {
+        // overflow-x: auto;
+
+        &--default {
+            
+            .select2-selection--single {
+                border: 1px solid #ececec;
+                padding: 10px 14px;
+
+                border-radius: 5px;
+                width: 100%;
+                height: auto;
+
+                .select2-selection__rendered {
+                    color: #a49f9f;
+                    line-height: 18px;
+                    padding: 0;
+                    font-size: rem(12px);
+                }
+
+                &::after {
+                    position: absolute;
+                    top: 14px;
+                    right: 14px;
+                    content: "";
+                    display: inline-block;
+                    background-image: path("dropdown-icon.svg", img/Dashboard);
+                    background-repeat: no-repeat;
+                    background-size: 11px 12px;
+                    height: 11px;
+                    width: 12px;
+
+                    &:focus {
+                        box-shadow: none;
+                    }
+                }
+
+                .select2-selection__arrow b {
+                    border: 0;
+                }
+            }
+
+            .select2-search--dropdown .select2-search__field {
+                &:focus {
+                    outline: 0;
+                }
+            }
+
+            &.select2-container--focus .select2-selection--multiple {
+                border: 1px solid #ececec;
+                // padding: 10px 14px;
+                border-radius: 5px;
+                width: 100%;
+                height: 40px;
+                overflow-x: auto;
+                overflow-y: hidden;
+            }
+
+            .select2-selection--multiple {
+                height: 40px;
+                padding-right: 10px;
+                overflow-x: auto;
+                display: flex;
+                overflow-y: hidden;
+                width: 100%;
+
+                &::-webkit-scrollbar {
+                    width: 20px;
+                    height: 3px;
+                }
+
+                &::-webkit-scrollbar-track {
+                    box-shadow: inset 0 0 2px grey;
+                    border-radius: 10px;
+                }
+
+                &::-webkit-scrollbar-thumb {
+                    background: #a49f9f;
+                    border-radius: 10px;
+                }
+
+                .select2-selection__rendered {
+                    display: flex;
+                }
+
+                .select2-selection__choice {
+                    overflow: visible;
+                    max-width: fit-content;
+                    height: fit-content;
+                }
+            }
+        }
+
+    }
+}
+.stem-count{
+    border-radius: 5px;
+    border: $dropdown-border;
+    padding: 10px 19px 10px 19px;
+}

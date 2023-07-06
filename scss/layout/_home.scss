@@ -1,0 +1,525 @@
+//Header section starts
+.navbar-toggler{
+    &-icon{
+        color:$red;
+        .fa-bars{
+            font-size: rem(24px);
+        }
+    }
+    line-height: 1.8;
+}
+
+//Header end
+
+//banner sec style
+.banner{
+    background-image: path('banner-bg.png', img);
+    background-size: cover;
+    height: 100vh;
+    display:flex;
+    align-items: center;
+    @include media-breakpoint-only(lg) {
+        height: 100%;
+    }
+    @include media-breakpoint-only(md) {
+        height: 100%;
+    }
+    @include media-breakpoint-only(xs) {
+        height: 100%;
+    }
+
+    .banner-cont{
+        // width: 50%;
+        @include media-breakpoint-only(lg) {
+            margin-top: rem(80px);
+        }
+        @include media-breakpoint-only(md) {
+            margin-top: rem(80px);
+        }
+        @include media-breakpoint-only(xs) {
+            margin-top: rem(80px);
+        }
+        span{
+            font-size: rem(24px);
+            color: $white-base;
+            @include media-breakpoint-only(xs){
+                font-size: rem(18px);
+            }
+        }
+        h2{
+            font-size: rem(41px);
+            color: $white-base;
+            font-weight: bold;
+           
+            @include media-breakpoint-only(xs) {
+                font-size: rem(25px);
+            }
+             @extend .text-bold;
+            span{
+                color: $primary-color;
+                font-size: rem(41px);
+                @include media-breakpoint-only(xs){
+                    font-size: rem(25px);
+                }
+            }
+        }
+        p{
+            color: $white-base;
+            @include media-breakpoint-only(xs) {
+              font-size:rem($base-font-size - 2 );
+            }
+        }
+        button{
+            &[type=button]{
+                &.btn{
+                    font-weight: bold !important;
+                    &.get-started{
+                        background: $white;
+                        border: 1px solid $white;
+                        color: $body-color;
+                        .fa{
+                            color: $primary-color;
+                            font-size: $base-font;
+                        }
+                        &:hover{
+                            background: transparent;
+                            color: $white;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+//tenders style
+.tenders{
+    padding: 25px 0px;
+    background-image: radial-gradient(ellipse farthest-corner at 45px 45px, rgba(65, 62, 62, 0.06) 0%, rgba(176, 167, 167, 0.06));
+
+    .tender-info{
+        span{
+            font-size: rem(19px);
+            color: $secondary-color;
+            @include media-breakpoint-only(xs) {
+                font-size: rem($base-font-size);
+            }
+        }
+        h2{
+            font-size: rem(38px);
+            color: $body-color;
+            font-weight: bold;
+             @extend .text-bold;
+             @include media-breakpoint-only(xs) {
+                font-size: rem(30px);
+            }
+
+            span{
+                color: $primary-color;
+                font-size: rem(38px);
+            }
+        }
+        p{
+            color: $body-color;
+            @include media-breakpoint-only(xs) {
+                font-size: rem($base-font-size - 2);
+            }
+        }
+    }
+    .tender-status-accordian{
+        height: 557px;
+        // overflow-y: scroll;
+        .accordion{
+            &-body{
+                padding:rem(15px);
+                .mCustomScrollbar{
+                    max-height: 400px;
+                    height: auto;
+                }
+            }
+            .accordion-item{
+                margin-bottom: 25px;
+                border: none;
+                background: $white;
+                border-radius: 0px 15px;
+                .accordion-header{
+                    .accordion-button{
+                        background: $white;
+                        border-radius: 0px 15px;
+                        box-shadow: 6px 6px 10px rgba(0, 0, 0, 0.06);
+                        padding: 0;
+                        overflow: hidden;
+                        &::after{
+                            display: none;
+                        }
+                        &:focus {
+                            border-color: transparent;
+                            outline: 0;
+                            box-shadow: none;
+                        }
+                        &:not(.collapsed){
+                            color: $body-color;
+                            background-color: transparent;
+                            box-shadow: none;
+                            .accordian-icon{
+                                // background: #000000;
+                                transition: transform 0.2s ease-in-out 0s;
+                                border-radius: 0px 0px 0px 15px;
+                                &:before {
+                                    top: 0;
+                                }
+                            }
+                            .accordian-head-info{
+                                // background-color: $primary-color;
+                                transition: transform 0.2s ease-in-out 0s;
+                                border-radius: 0px 15px 0px 0px;
+                                h5{
+                                    color: $white;
+                                    span{
+                                        color: $white;
+                                    }
+                                }
+                                p{
+                                    color: $white;
+                                    
+                                }
+                                span{
+                                    color: $white;
+                                    .fa{
+                                        transition: transform 0.2s ease-in-out 0s;
+                                        transform: rotate(-180deg);
+                                        color: $white;
+                                    }
+                                    .close-accordian {
+                                        display: block;
+                                    }
+                                    .open-accordian {
+                                        display: none;
+                                    }
+                                }
+                                &:before {
+                                    top: 0;
+                                }
+                            }
+                        }
+                        .accordian-icon{
+                            width: 25%;
+                            padding: rem(15px);
+                            height: rem(120px);
+                            
+                            position: relative;
+                            img{
+                                width: rem(50px);
+                                position: relative;
+                                z-index: 1;
+                            }
+                            &:before {
+                                content: '';
+                                position: absolute;
+                                top: 100%;
+                                left: -44px;
+                                width: calc(100% + 40px);
+                                height: 100%;
+                                transform: skew(20deg);
+                                background: #000000;
+                                z-index: 1;
+                                transition: all 0.2s ease-in-out;
+                            }
+                            
+                        }
+                        .accordian-head-info{
+                            width: 75%;
+                            padding: rem(15px);
+                            height: rem(120px);
+                            transition: transform 0.2s ease-in-out 0s;
+                            position: relative;
+                            h5{
+                                font-size: rem(18px);
+                                font-weight: bold;
+                                 @extend .text-bold;
+                                 @include media-breakpoint-only(xs) {
+                                    font-size: rem($base-font-size + 1);
+                                 }
+                                span{
+                                    color: $primary-color;
+                                    font-size: rem(18px);
+                                     @extend .text-bold;
+
+                                     @include media-breakpoint-only(xs) {
+                                        font-size: rem($base-font-size + 1);
+                                     }
+                                }
+                            }
+                            p{
+                                font-size: rem($base-font-size - 2.5 );
+                                font-family: $base-font; 
+                            }
+                            span{
+                                font-size: rem($base-font-size - 2.5);
+                                font-family: $base-font;
+                                .fa{
+                                    color: $primary-color;
+                                    font-size: rem(15px);
+                                    transition: transform 0.2s ease-in-out 0s;
+                                }
+                                .close-accordian {
+                                    display: none;
+                                }
+                                .open-accordian {
+                                    display: block;
+                                }
+                            }
+                            &:before {
+                                content: '';
+                                position: absolute;
+                                top: -100%;
+                                left: -18px;
+                                width: calc(100% + 44px);
+                                height: 100%;
+                                transform: skew(20deg);
+                                background: $primary-color;
+                                transition: all 0.2s ease-in-out;
+                            }
+                        }
+                    }
+                    
+                }
+
+                .tender-wrap{
+                    display:flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    color: $light-black;
+                    font-family: $base-font; 
+                    border-bottom: 1px solid $pink;
+                    padding-bottom:15px;
+                    font-weight: $font-weight-bold;;
+                   
+                    &__status{
+                        line-height: 30px;
+                        font-weight: $font-weight-bold;
+                       
+                        h5{
+                            font-size: rem($base-font-size - 2);
+                            margin-bottom:0;
+                            font-weight: $font-weight-bold;
+                            @include media-breakpoint-only(xs) {
+                               font-size: rem(10px); 
+                            }
+                        }
+                    }
+                    &__status-list{
+                        display:flex;
+                        align-items: center;
+                        line-height: 30px;
+                        font-size: rem($base-font-size - 2);
+                        @extend .text-medium;
+                        li{
+                            position:relative;
+                            margin-left: 30px;
+                            font-size: rem($base-font-size - 2);
+                            @include media-breakpoint-only(xs) {
+                                font-size: rem(10px); 
+                             }
+                        }
+
+                      
+                    }
+                   
+                }
+                .tender-details{
+
+                    &:not(&:last-child){
+                        border-bottom: 1px solid $pink;
+                    }
+                    
+                    .tender-para{
+                        color: $gray-600;
+                        font-size: rem($base-font-size - 3.5);
+                        font-weight: 500;
+                     }
+                    &__head{
+                        display:flex;
+                        align-items: center;
+                        justify-content: space-between;
+                        padding-top: 15px;
+                       .title{
+                        margin-left: 15px;
+                        position: relative;
+                        font-family: $base-font; 
+                        
+                        
+                        h4{
+                            margin-bottom:0;
+                            font-size: rem($base-font-size - 2);
+                            @extend .text-bold;
+                            color:$light-black;
+                        }
+                    }
+                    
+                       .timer{
+                        display:flex;
+                        align-items: center;
+                        li{
+                           color: $gray-600;
+                           font-size: rem(14px);
+                        }
+                       }
+                    }
+                    &__connect{
+                      display:flex;
+                      align-items:center;
+                      column-gap: rem(7px);
+                      padding-bottom:15px;
+
+                      li {
+                        &:not(:last-child):after {
+                            content: "|";
+                            color: $gray-600;
+                            margin: 0 6px 0 12px;
+                        }
+                      }
+                      .tender-apply a{
+                        color:$red;
+                        text-decoration: underline;
+                        font-weight: $font-weight-bold;
+                      }
+                      a{
+                        color: $gray-600;
+                        @extend .text-bold;
+                        font-size: rem($base-font-size - 4);
+                        @include media-breakpoint-only(xs) {
+                            font-size: rem(10px); 
+                         }
+
+                     }
+                    }
+                }
+                .status{
+                    width:8px;
+                    height:8px;
+                    border-radius: 50%;
+                    display:inline-block;
+                    position: absolute;
+                    top:50%;
+                    left:-14px;
+                    transform: translate(0, -50%);
+                }
+                .circle-green{
+                    background-color:$green-light;
+                }
+                .circle-org{
+                    background-color:$orange-light;
+                }
+                .black-bold{
+                    font-weight: $font-weight-bold;
+                    color:$light-black;
+                }
+                .timer-red{
+                    font-weight: $font-weight-bold;
+                    color:$red;
+                }
+                .timer-green{
+                    font-weight: $font-weight-bold;
+                    color:$green-light;
+                }
+                .timer-gray{
+                    color:$light-black;
+            }
+            
+        }
+    }
+        
+}
+
+}
+.contactUs-label{
+    label{
+    position: relative !important;
+    font-size: 0.9rem !important;
+    transform: unset !important;
+    left: unset !important;
+    }
+}
+.mCS-dark.mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar {
+    background-color: $red-scroll;
+}
+.mCustomScrollbar {
+    // height: 400px;
+    height: 580px;
+    
+   .mCSB_dragger_bar{
+    
+    &:hover{
+        background-color: $red-scroll !important;
+    }
+   }
+   .mCS-dark.mCSB_scrollTools .mCSB_dragger.mCSB_dragger_dragger .mCSB_dragger_bar{
+    background-color: $red-scroll !important;
+   }
+}
+.mCSB_inside > .mCSB_container {
+    margin-right: 15px;
+}
+// contact sec style
+.contact{
+    padding: 6px 0px 25px;
+    border-bottom: 1px solid $primary-color;
+    .contact-address{
+        border-radius: 0px 30px 0px 30px;
+        background: $primary-color;
+        padding: rem(50px);
+        h2{
+            font-size: rem(44px);
+            color: $white-base;
+            font-weight: bold;
+             @extend .text-bold;
+        }
+        span{
+            color: $white-base;
+            font-size: rem($base-font-size - 2);
+        }
+        ul{
+            li{
+                margin-bottom: rem(20px);
+                a{
+                    color: $white;
+                    font-size: rem($base-font-size); 
+                    font-weight: bold;
+                     @extend .text-bold;
+                    img{
+                        width: rem(25px);
+                    }
+                }
+                &:last-child{
+                    margin-bottom: 0;
+                }
+            }
+        }
+    }
+    .btn-container{
+        &__left{
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            padding: 10px;
+            border: 1px solid #c7c6c6;
+            background-color: $gray-400;
+            border-radius: 5px;
+    
+            > div{
+                > input{
+                width: 20px;
+                height: 20px;
+                }
+            }
+        }
+        .captcha{
+            width: 50px;
+            height: 50px;
+        }
+    }
+}
+
+
+
+
